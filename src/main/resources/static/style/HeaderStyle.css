@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+header#header {
+	margin: 30px;
+}
+header#header h1 {
+	margin: 30px;
+}
