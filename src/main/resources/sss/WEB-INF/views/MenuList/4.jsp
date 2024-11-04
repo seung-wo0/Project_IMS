@@ -5,7 +5,7 @@
 <html lang="ko">
 <head>
 	<meta charset="UTF-8">
-	<title>4번째 더보기</title>
+	<title>4번째 더보기 테스트</title>
 	<link rel="stylesheet" href="/style/style.css?v">
 </head>
 <body>
