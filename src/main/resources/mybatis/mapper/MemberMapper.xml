@@ -5,39 +5,35 @@
 
 <!-- 회원가입 -->
 	<insert id="joinProc" parameterType="java.util.Map">
-		insert into userList (uid, upw, nickname, uemail) 
+		insert into memberList (userID, userPW, userPhone, userEmail) 
 		values (#{item1},#{item2},#{item3},#{item4})
 	</insert>
 
 <!-- 로그인처리 -->
 	<select id="LoginProc" resultType="int">
-		select count(*) from userList where (uid like (#{param1}) or uemail like (#{param1})) and upw like(#{param2})
+		select count(*) from memberList where (userID like (#{param1}) or userEmail like (#{param1})) and userPW like(#{param2})
 	</select>
 	
 <!-- 회원정보가져오기 -->
 	<select id="findMemInfo" resultType="com.project.ims.dto.MemberDto">
-		select * from userList where uid=#{param1} or uemail=#{param1}
+		select * from memberList where userID=#{param1} or userEmail=#{param1}
 	</select>
 
 <!-- 비밀번호 변경 -->
 	<update id="pwdChange">
-		update userList set upw=#{param3} where (uid=#{param1} and uemail=#{param2})
+		update memberList set userPW=#{param3} where (userID=#{param1} and userEmail=#{param2})
 	</update>
 	
 <!-- 	아이디 중복 체크하기 -->
 	<select id="chkID" resultType="int">
-		select count(*) from userList where uid like (#{param1})
+		select count(*) from memberList where userID like (#{param1})
 	</select>
 	
 <!-- 	회원정보 수정 -->
 	<update id="myPageProc">
-		update userList set upw=#{item2},nickname=#{item3},uemail=#{item4} where uid=#{item1}
+		update memberList set userPW=#{item2},nickname=#{item3},userEmail=#{item4} where userID=#{item1}
 	</update>
 	
-	<!-- 프로필 사진 변경 -->
-	<update id="mtdProfile">
-		update userList set profile='${list.get(1)}' where uid='${list.get(2)}'
-	</update>
 	
 </mapper>
 

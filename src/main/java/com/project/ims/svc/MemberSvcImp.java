@@ -14,13 +14,12 @@ public class MemberSvcImp implements MemberSvc {
 	
 	
 	@Override
-	public int LoginProc(String uid, String upw) {
-		return MemberDao.LoginProc(uid,upw);
+	public int LoginProc(String LoginID, String LoginPW) {
+		return MemberDao.LoginProc(LoginID,LoginPW);
 	}
 	
 	@Override
 	public MemberDto findMemInfo(String uid) {
-	
 		return MemberDao.findMemInfo(uid);
 	}
 

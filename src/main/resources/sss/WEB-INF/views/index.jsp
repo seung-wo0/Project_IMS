@@ -2,12 +2,18 @@
     pageEncoding="UTF-8"%>
     
 <%
-	String uid_session = (String)session.getAttribute("uid_session"); //uid 세션 부여
-	String nickname_session = (String)session.getAttribute("nickname_session");	//닉네임 세션 부여
-	int auth_session = 0;
+	String userID_session = (String)session.getAttribute("userID_session"); //uid 세션 부여
+	String userPW_session = (String)session.getAttribute("userPW_session");	//닉네임 세션 부여
 	
-	if(uid_session!=null){
-		auth_session = (int)session.getAttribute("auth_session");	
+	int userAuth_session = 0;
+	String AuthName = "";
+	
+	if(userID_session != null){
+		userAuth_session = (int)session.getAttribute("userAuth_session");	
+		
+		
+		if (userAuth_session == 1) AuthName = "부 관리자";
+		if (userAuth_session == 2) AuthName = "총 관리자";
 	}
 %>   
     
@@ -15,7 +21,7 @@
 <html lang="ko">
 <head>
 	<meta charset="UTF-8">
-	<title>메인 페이지(git수정 테스트중)</title>
+	<title>메인 페이지</title>
 	<link rel="stylesheet" href="/style/style.css?v">
 </head>
 <body>
@@ -27,20 +33,40 @@
 		<br>
 		<br>
 		<br>
-		<%if(uid_session == "" || uid_session == null){ %>
+		<%if (userID_session == "" || userID_session == null) { %>
 		<div id="LoginFormArea">
 			<form action="LoginProc">
-				<input type="text" placeholder="ID" name="uid" id="uid" required>
-				<input type="password" placeholder="PW" name="upw" id="upw" required>
+				<input type="text" placeholder="ID" name="LoginID" id="LoginID" required>
+				<input type="password" placeholder="PW" name="LoginPW" id="LoginPW" required>
 				
 				<button class="Login_Btn">로그인</button>
+				<button class="Join_Btn">회원가입</button>
 			</form>
-		<%} else {%>
+		<% } else { %>
 				<div id="loginStateMenu" class="dFlex">
-					<span class="notosanskr"><%=nickname_session %>님 환영합니다</span>
+					<% if (userAuth_session > 0) { %>
+					<span class="notosanskr"><b><%=AuthName %></b> 님 환영합니다</span>
+					<% } else { %>
+					<span class="notosanskr"><b><%=userID_session %></b> 님 환영합니다</span>
+					<% } %>
 					<button id="Logout_Btn" class="Logout_Btn">로그아웃</button>
+					
+					<div id="ShopListArea">
+					<% if (userAuth_session > 0) { %>
+						<select id="ShopList">
+							<option value="">관리자용 관리매장 선택</option>
+							<option value="관리자용 1번">관리자용 1번</option>
+							<option value="관리자용 2번">관리자용 2번</option>
+						</select>
+					<% } else { %>
+						<select id="ShopList">
+							<option value="">관리매장 선택</option>
+							<option value="1번">1번</option>
+							<option value="2번">2번</option>
+						</select>
+					<% } %>
+					</div>
 				</div>
-				
 				<br>
 				
 				<main id="main" class="MainWrap dFlex">
@@ -157,7 +183,7 @@
 					
 					
 				</main>
-		<%} %>
+		<% } %>
 		</div>
 <!-- 		div#LoginFormArea -->
 	</div>

@@ -7,11 +7,12 @@ import lombok.Data;
 @Data
 public class MemberDto {
 	private int num;
-	private String uid;
-	private String upw;
-	private String nickname;
-	private String uemail;
-	private String uphone;
-	private int auth;
+	private String userID;
+	private String userPW;
+	private String userPhone;
+	private String userEmail;
+	private int userAuth;
+	private int shop_Code;
+	private int shop_Auth;
 	private Timestamp regTM;
 }

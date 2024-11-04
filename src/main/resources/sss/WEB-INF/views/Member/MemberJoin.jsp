@@ -5,7 +5,7 @@
 <html lang="ko">
 <head>
 	<meta charset="UTF-8">
-	<title>로그인허쉴?</title>
+	<title>회원가입 페이지</title>
 	<link rel="stylesheet" href="/style/style.css?v">
 </head>
 <body>

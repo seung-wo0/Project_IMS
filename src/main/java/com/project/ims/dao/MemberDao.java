@@ -6,6 +6,6 @@ import com.project.ims.dto.MemberDto;
 
 @Mapper
 public interface MemberDao {
-	int LoginProc(String uid, String upw);
+	int LoginProc(String LoginID, String LoginPW);
 	MemberDto findMemInfo(String uid);
 }
