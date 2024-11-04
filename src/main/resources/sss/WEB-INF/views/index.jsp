@@ -64,7 +64,7 @@
 							<option value="1번">1번</option>
 							<option value="2번">2번</option>
 						</select>
-					<% } %>
+					<% }  %>
 					</div>
 				</div>
 				<br>
