@@ -15,7 +15,7 @@
 <html lang="ko">
 <head>
 	<meta charset="UTF-8">
-	<title>메인 페이지(git수정 테스트중 노트1)</title>
+	<title>메인 페이지(git수정 테스트중 노트북)</title>
 	<link rel="stylesheet" href="/style/style.css?v">
 </head>
 <body>
