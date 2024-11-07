@@ -21,11 +21,8 @@
 <html lang="ko">
 <head>
 	<meta charset="UTF-8">
-<<<<<<< HEAD
+
 	<title>메인 페이지</title>
-=======
-	<title>메인 페이지(git수정 테스트중 노트북)</title>
->>>>>>> e32956b57d45f29a3d7b33f064d2037ed6e8bc5f
 	<link rel="stylesheet" href="/style/style.css?v">
 </head>
 <body>
