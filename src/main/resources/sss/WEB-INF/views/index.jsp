@@ -11,7 +11,6 @@
 	if(userID_session != null){
 		userAuth_session = (int)session.getAttribute("userAuth_session");	
 		
-		
 		if (userAuth_session == 1) AuthName = "부 관리자";
 		if (userAuth_session == 2) AuthName = "총 관리자";
 	}
@@ -43,6 +42,8 @@
 				<button class="Login_Btn">로그인</button>
 				<button class="Join_Btn">회원가입</button>
 			</form>
+			<!-- form#LoginProc -->
+			
 		<% } else { %>
 				<div id="loginStateMenu" class="dFlex">
 					<% if (userAuth_session > 0) { %>
@@ -51,7 +52,9 @@
 					<span class="notosanskr"><b><%=userID_session %></b> 님 환영합니다</span>
 					<% } %>
 					<button id="Logout_Btn" class="Logout_Btn">로그아웃</button>
-					
+					<% if (userAuth_session == 2) { %>
+					<button id="Member_Edit" class="Member_Edit">회원관리</button>
+					<% } %>
 					<div id="ShopListArea">
 					<% if (userAuth_session > 0) { %>
 						<select id="ShopList">
@@ -67,7 +70,10 @@
 						</select>
 					<% }  %>
 					</div>
+					<!-- div#ShopListArea -->
 				</div>
+				<!-- div#loginStateMenu -->
+				
 				<br>
 				
 				<main id="main" class="MainWrap dFlex">

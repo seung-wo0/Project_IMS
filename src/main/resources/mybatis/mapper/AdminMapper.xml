@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.ims.dao.MemberDao">
+
+	<!-- 멤버 리스트 -->
+
+	<select id="mtdMemberList" resultType="com.project.ims.dto.MemberDto">
+		select * from memberList order by num desc
+	</select>
+	
+	
+</mapper>
+
+
+<!-- 삭제하기 -->
+
+<!-- <delete id="del"> -->
+<!-- 	delete from goodsList where -->
+	
+<!-- 		<foreach collection="array" item="item" index="index" -->
+<!-- 		 open="num in (" separator="," close=")"> -->
+<!-- 			#{item} -->
+<!-- 		</foreach> -->
+<!-- </delete> -->
+	
+	
+	
+<!-- <mapper namespace="dao 경로와 인터페이스명"> -->
+
+<!-- <select id="dao에서 사용하는 메서드명" resultType="dto"> -->
+<!-- select * from goodsList order by num desc -->
+<!-- </select> -->
+
+<!-- <select id="dao에서 사용하는 메서드명" resultType="dto"> -->
+<!-- select * from goodsList where num= #{param1} -->
+<!-- </select> -->
+
+<!-- <select id="dao에서 사용하는 메서드명" resultType="_num"> -->
+<!-- select count(*) from goodsList -->
+<!-- </select> -->
+
+<!-- <insert id="dao에서 사용하는 메서드명"> -->
+<!-- insert into T/N values(#{param1},#{param2},#{param3}) -->
+<!-- </insert> -->
+
+<!-- Map 컬렉션 프레임워크로 매개변수를 전달하는 경우 -->
+<!-- <insert id="dao에서 사용하는 메서드명" parameterType="java.util.Map"> -->
+<!-- insert into T/N values(#{item1},#{item2},#{item3}) -->
+<!-- </insert> -->
+<!-- </mapper> -->

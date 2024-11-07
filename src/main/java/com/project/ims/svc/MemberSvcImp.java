@@ -1,5 +1,7 @@
 package com.project.ims.svc;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,12 @@ public class MemberSvcImp implements MemberSvc {
 	@Override
 	public MemberDto findMemInfo(String uid) {
 		return MemberDao.findMemInfo(uid);
+	}
+	
+	@Override
+	public List<MemberDto> mtdMemberList() {
+
+		return MemberDao.mtdMemberList();
 	}
 
 }

@@ -27,6 +27,11 @@ $(function () {
 			window.location.href = "/Logout";
 		});
 		
+		$(".Member_Edit").click(function() { 
+			window.location.href = "/Member_Edit";
+		});
+
+		
 		$(".MyPage_Btn").click(function() {
 			console.log("마이페이지 클릭");
 			window.location.href = "/MyPage";

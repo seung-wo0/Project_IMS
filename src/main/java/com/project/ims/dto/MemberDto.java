@@ -14,5 +14,5 @@ public class MemberDto {
 	private int userAuth;
 	private int shop_Code;
 	private int shop_Auth;
-	private Timestamp regTM;
+	private Timestamp joinTM;
 }
