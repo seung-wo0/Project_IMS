@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.project.ims.svc.MemberSvc;
+import com.project.ims.svc.ShopListSvc;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -14,6 +15,8 @@ public class AdminController {
 	
 	@Autowired
 	MemberSvc MemberSvc;
+//	@Autowired
+//	ShopListSvc ShopListSvc;
 	
 	@RequestMapping("Member_Edit")
 	public String mtdMember_Edit (Model model) { //관리자 로그인시 관리자편집기능체크
@@ -28,5 +31,6 @@ public class AdminController {
 		model.addAttribute("SelectUserID", SelectUserID);
 		return "Admin/SelectEditUser";
 	}
+	
 	
 }

@@ -9,7 +9,6 @@
 		select * from memberList order by num desc
 	</select>
 	
-	
 </mapper>
 
 

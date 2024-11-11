@@ -27,7 +27,6 @@ public class MemberSvcImp implements MemberSvc {
 	
 	@Override
 	public List<MemberDto> mtdMemberList() {
-
 		return MemberDao.mtdMemberList();
 	}
 

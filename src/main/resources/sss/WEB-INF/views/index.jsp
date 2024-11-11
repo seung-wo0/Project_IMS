@@ -1,18 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%
 	String userID_session = (String)session.getAttribute("userID_session"); //uid 세션 부여
 	String userPW_session = (String)session.getAttribute("userPW_session");	//닉네임 세션 부여
 	
 	int userAuth_session = 0;
+	int shop_Code_session = 0;
 	String AuthName = "";
+	String Shop_Name_Session = "";
 	
 	if(userID_session != null){
 		userAuth_session = (int)session.getAttribute("userAuth_session");	
 		
 		if (userAuth_session == 1) AuthName = "부 관리자";
 		if (userAuth_session == 2) AuthName = "총 관리자";
+		
+		shop_Code_session = (int)session.getAttribute("shop_Code_session");
+		if (shop_Code_session > 0) Shop_Name_Session = (String)session.getAttribute("Shop_Name_Session");
 	}
 %>   
     
@@ -33,6 +39,7 @@
 		<br>
 		<br>
 		<br>
+		
 		<%if (userID_session == "" || userID_session == null) { %>
 		<div id="LoginFormArea">
 			<form action="LoginProc">
@@ -55,20 +62,31 @@
 					<% if (userAuth_session == 2) { %>
 					<button id="Member_Edit" class="Member_Edit">회원관리</button>
 					<% } %>
+					
 					<div id="ShopListArea">
 					<% if (userAuth_session > 0) { %>
 						<select id="ShopList">
 							<option value="">관리자용 관리매장 선택</option>
-							<option value="관리자용 1번">관리자용 1번</option>
-							<option value="관리자용 2번">관리자용 2번</option>
+							<c:forEach var="shopList" items="${shopList}" varStatus="status">
+							<option value="${shopList.shop_Code}">${shopList.num}. ${shopList.shop_Name}</option>
+							</c:forEach>
 						</select>
 					<% } else { %>
+						<% if (shop_Code_session > 0) { %>
 						<select id="ShopList">
 							<option value="">관리매장 선택</option>
-							<option value="1번">1번</option>
-							<option value="2번">2번</option>
+							<option value="<%= shop_Code_session %>"><%= Shop_Name_Session %></option>
 						</select>
-					<% }  %>
+						<% } else { %>
+						<select id="ShopList">
+							<option value="">관리매장 없음</option>
+						</select>
+						<% } %>
+					<% } %>	
+					
+
+						
+					
 					</div>
 					<!-- div#ShopListArea -->
 				</div>
