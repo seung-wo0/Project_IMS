@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.ims.dao.ShopInventoryDao">
+	<select id="mtdAllInventoryList" resultType="com.project.ims.dto.ShopInventoryDto">
+		select * from Shop_Inventory where shop_Code= #{param1} order by num desc
+	</select>
+	<!-- 해당매장 전체 인벤토리 물품목록 -->
+	
+	<select id="mtdInventoryListLimit" resultType="com.project.ims.dto.ShopInventoryDto">
+			select * from Shop_Inventory where shop_Code= #{param1} order by num desc limit 0,5
+	</select>	
+	<!-- 해당매장 메인에서 보여줄 인벤토리 물품목록 -->
+</mapper>

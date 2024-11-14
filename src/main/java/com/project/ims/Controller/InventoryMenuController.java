@@ -26,8 +26,9 @@ public class InventoryMenuController {
 	
 	@RequestMapping("/Menu_4")
 	public String mtd_Menu_4() {
-		
 		return "MenuList/4";
 	}
+	
+
 	
 }

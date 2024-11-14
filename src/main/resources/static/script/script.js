@@ -92,6 +92,47 @@ $(function () {
 			location.href = "Menu_" + PageName;
 		});
 		
+		$("#ShopList").change(function() {
+			var SValue = $("#ShopList :selected").val();//셀렉트 옵션 값
+			var SVname = $("#ShopList :selected").text();//셀렉트 값 이름
+				let loading = false;
+			if (SValue != "") {
+				$(".MainWrap").text(SValue + ", " + SVname);
+				function loadMoreContent() {
+	            	if (!loading) {
+		                loading = true;
+		                $.ajax({
+		                    type: "get",
+		                    url: "/test",
+		                    data: {
+								"Shop_Code" : SValue,
+		                        "Shop_Name": SVname,
+		                    },
+		                    dataType: "html",
+		                    async: true,
+		                    success: function (data) {
+		                        $("#main").html(data);
+		                        console.log("비동기 통신 성공");
+		                        loading = false;
+		                    },
+		                    error: function () {
+		                        console.log("비동기 통신 실패");
+		                        loading = false;
+		                    }
+		                });
+	            	}
+	        	}
+    
+			} else {
+				$(".MainWrap").text("관리 매장을 선택 하세요.");
+			}
+			
+			console.log("Svalue = " + SValue);
+			console.log("SVname = " + SVname);
+			console.log($(".Svalue").text());
+			loadMoreContent();
+		});
+		
 	});
 	
 });

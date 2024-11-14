@@ -40,26 +40,35 @@ public class MemberController {
 		if (chk==1) {
 			System.out.println("로그인 성공");
 			MemberDto mlist = MemberSvc.findMemInfo(LoginID);
-			ShopListDto slist;
+			ShopListDto slist = null;
 			
 			session.setAttribute("userID_session", mlist.getUserID());
 			session.setAttribute("userPW_session", mlist.getUserPW());
 			session.setAttribute("userPhone_session", mlist.getUserPhone());
 			session.setAttribute("userAuth_session", mlist.getUserAuth());
-			session.setAttribute("shop_Code_session", mlist.getShop_Code());
+			session.setAttribute("Shop_Code_session", mlist.getShop_Code());
 			session.setAttribute("shop_Auth_session", mlist.getShop_Auth());
-			if (mlist.getUserAuth() > 0) {
-				System.out.println("관리자 shopList 진입");
-				//model.addAttribute("shopList", ShopListSvc.mtdAllShopList());
-				session.setAttribute("shopList", ShopListSvc.mtdAllShopList());
-//				System.out.println(ShopListSvc.mtdAllShopList());
-			}
 			
+			System.out.println("Shop_Code_session : " + mlist.getShop_Code());
+			System.out.println("shop_Auth_session : " + mlist.getShop_Auth());
+
+			
+			if (mlist.getUserAuth() > 0) { // 만약 관리자라면
+				System.out.println("관리자 shopList 진입");
+				session.setAttribute("shopList", ShopListSvc.mtdAllShopList());
+//				model.addAttribute("shopList", ShopListSvc.mtdAllShopList());
+				System.out.println("관리자 shopList 진입끝");
+			} 
 			if (mlist.getShop_Code() > 0) {
+				System.out.println("일반유저 shopList 진입");
 				slist = ShopListSvc.mtdfindShopName(mlist.getShop_Code());
 				session.setAttribute("Shop_Name_Session", slist.getShop_Name());
+				System.out.println("Shop_Name_Session : " + slist.getShop_Name());
 				System.out.println("slist.getShop_Name() : " + slist.getShop_Name());
+				System.out.println("일반유저 shopList 진입끝");
+				
 			}
+			
 //			System.out.println("mlist.getShop_Code() : " + mlist.getShop_Code());
 			session.setMaxInactiveInterval(10*60*60);
 			//model.addAllAttributes("UserMGment", )
