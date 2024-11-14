@@ -12,7 +12,7 @@ public class MemberDto {
 	private String userPhone;
 	private String userEmail;
 	private int userAuth;
-	private int shop_Code;
+	private int Shop_Code;
 	private int shop_Auth;
 	private Timestamp joinTM;
 }
