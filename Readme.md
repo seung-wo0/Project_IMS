@@ -1,3 +1,5 @@
+![241104_DB설계](https://github.com/user-attachments/assets/6015bb8b-34b5-4c3a-8b13-c576e3728b96)
+
 - 2024.11.07
 
   - 페이지 총 관리자 권한 확인 후 로그인시 회원관리 탭 추가
