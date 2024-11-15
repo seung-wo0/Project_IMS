@@ -1,6 +1,7 @@
 package com.project.ims.svc;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,4 +31,10 @@ public class MemberSvcImp implements MemberSvc {
 		return MemberDao.mtdMemberList();
 	}
 
+	@Override
+	public void mtdMemberShopAuthUpdate(Map<String, Object> map) {
+		MemberDao.mtdMemberShopAuthUpdate(map);
+		
+	}
+	
 }

@@ -6,6 +6,10 @@ div#wrap {
 	margin: 200px auto;
 	padding: 30px;
 }
+#header {
+	width: 1300px;
+}
+
 #main{
 	width: 1300px;
 }

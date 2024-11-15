@@ -6,8 +6,8 @@
 	String Shop_Code = request.getParameter("Shop_Code");
 	String Shop_Name = request.getParameter("Shop_Name");
 
-	out.print("<br><br> 비동기통신 Shop_Code : " + Shop_Code);
-	out.print("<br><br> 비동기통신 Shop_Name: " + Shop_Name);
+// 	out.print("<br><br> 비동기통신 Shop_Code : " + Shop_Code);
+// 	out.print("<br><br> 비동기통신 Shop_Name: " + Shop_Name);
 %>
     
 <link rel="stylesheet" href="/style/style.css?v">

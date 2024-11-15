@@ -31,9 +31,7 @@ public class MainController {
 	public String mtdTestPage(
 			Model model, 
 			@RequestParam("Shop_Code") int Shop_Code, 
-			@RequestParam("Shop_Name") String Shop_Name ) {
-		System.out.println("컨트롤러 Shop_Code: " + Shop_Code);
-		System.out.println("컨트롤러 Shop_Name: " + Shop_Name);
+			@RequestParam("Shop_Name") String Shop_Name ) {		
 		
 		model.addAttribute("Shop_InventoryList", ShopInventorySvc.mtdInventoryListLimit(Shop_Code));
 		

@@ -39,6 +39,34 @@ $(function () {
 		
 	});
 	
+	$(document).ready(function() { //관리매장수정하기
+		$("#selectEditUser").click(function() {
+//			$(".SelectUserID").value();
+			var SelectUserID = $(".SelectUserID").val().trim();
+			var selectShop = $(".selectShop").val();
+			console.log("SelectUserID : " + SelectUserID);
+			console.log("selectShop : " + selectShop);
+			window.location.href="/MemberShopAuthProc?SelectUserID="+SelectUserID+"&selectShop="+selectShop;
+		});
+		
+		$(".backPage").hover(function() {
+			$(this).css({
+				"color" : "red",
+				"text-decoration" : "underline",
+				"cursor" : "pointer"
+			}) }, function() {
+			$(this).css({
+				"color" : "",
+				"text-decoration" : "",
+				"cursor" : ""
+			})
+		});
+		
+		$(".backPage").click(function(){
+			window.location.href="/"
+		});
+	});	
+	
 });
 
 function OpenWin_variety(url, windowName, width, height, top, left) {

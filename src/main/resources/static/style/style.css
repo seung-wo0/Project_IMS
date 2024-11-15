@@ -58,6 +58,7 @@ main#main.dFlex {
 	flex-wrap: wrap;
 	justify-content: space-between;
 	justify-content: center;
+	
 }
 
 main#main div.MainListArea {
@@ -92,6 +93,11 @@ main#main.MainWrap > div {
 	margin-bottom: 20px;
 /* 	margin-right: 30px; */
 /* 	margin-bottom: 20px; */
+}
+
+div#loginStateMenu select {
+	font-size: 20px;
+	padding: 5px;
 }
 
 .MainNavTitle {

@@ -23,10 +23,10 @@
 				Shop_Name_Session = (String)session.getAttribute("Shop_Name_Session");
 			}
 		}
-		
 	}
-	
-%>   
+%>
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>

@@ -13,6 +13,6 @@ public class MemberDto {
 	private String userEmail;
 	private int userAuth;
 	private int Shop_Code;
-	private int shop_Auth;
+	private int Shop_Auth;
 	private Timestamp joinTM;
 }

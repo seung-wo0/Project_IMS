@@ -25,8 +25,9 @@
 </head>
 <body>
 	<div id="wrap" class="listWrap">
-		<header id="header" class="MemberEdit listHeader">		
+		<header id="header" class="MemberEdit listHeader dFlex">		
 			<h1>멤버 관리</h1>
+			<span class="backPage">돌아가기..</span>
 		</header>
 		 
 		<main id="main" class="listArea">
