@@ -31,4 +31,7 @@
 
 - 2024.11.17
   - 관리매장 선택 후 "재고 목록 리스트" 우측 "..더보기" 선택시 해당매장 전체 재고목록 리스트를 출력해주는 페이지로 이동 후 전체리스트 출력
-  - 회원가입 페이지 의 약관 체크 및 동의 후 회원가입 페이지 이동 및 가입절차 및 가입등록까지
+    - <img src="https://github.com/user-attachments/assets/9128f3e6-8249-4b4e-a296-824fee8f486a" width="100%" title="20241117_1 재고리스트 더보기 클릭시" />
+    - <img src="https://github.com/user-attachments/assets/8fef7677-d76a-41b5-b7d6-6c2cb6696bbb" width="100%" title="20241117_1 재고리스트 더보기 클릭시2" />
+  - 회원가입 페이지 의 약관 체크 및 동의 후 회원가입 페이지 이동 및 가입절차 및 가입등록
+    - <img src="https://github.com/user-attachments/assets/136b98a5-143e-48fc-a9d9-c7367ef01cb2" width="100%" title="20241117_2 회원가입 관련" />
