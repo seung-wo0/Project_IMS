@@ -41,12 +41,13 @@
 				<input id="SelectUserID" class="SelectUserID" name="SelectUserID" type="hidden" disabled="disabled" value="${ SelectUserID }">
 				<button id="selectEditUser" class="selectEditUser" type="button">수정</button>
 			</form>
+			<!-- form#selectEditUserForm -->
 			<% } %>
-			
 		</div>
-		
+		<!-- div#ShopListArea -->
 	</div>
-	<!-- div#wrap -->
+	<!-- div#wrap.SelectEditUser -->
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<script src="/script/admin_script.js"></script>
 </body>

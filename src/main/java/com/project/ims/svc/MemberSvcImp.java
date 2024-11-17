@@ -15,7 +15,10 @@ public class MemberSvcImp implements MemberSvc {
 	@Autowired
 	MemberDao MemberDao;
 	
-	
+	@Override
+	public int chkID(String JoinUserID) {
+		return MemberDao.chkID(JoinUserID);
+	}
 	@Override
 	public int LoginProc(String LoginID, String LoginPW) {
 		return MemberDao.LoginProc(LoginID,LoginPW);
@@ -35,6 +38,11 @@ public class MemberSvcImp implements MemberSvc {
 	public void mtdMemberShopAuthUpdate(Map<String, Object> map) {
 		MemberDao.mtdMemberShopAuthUpdate(map);
 		
+	}
+	
+	@Override
+	public void mtdJoinProc(Map<String, Object> map) {
+		MemberDao.mtdJoinProc(map);
 	}
 	
 }

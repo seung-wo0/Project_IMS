@@ -4,9 +4,9 @@
 <mapper namespace="com.project.ims.dao.MemberDao">
 
 <!-- 회원가입 -->
-	<insert id="joinProc" parameterType="java.util.Map">
-		insert into memberList (userID, userPW, userPhone, userEmail) 
-		values (#{item1},#{item2},#{item3},#{item4})
+	<insert id="mtdJoinProc" parameterType="java.util.Map">
+		insert into memberList (userID, userPW, userPhone, userEmail, Shop_code, Shop_Auth) 
+		values (#{item1},#{item2},#{item3},#{item4}, 0, 0)
 	</insert>
 
 <!-- 로그인처리 -->

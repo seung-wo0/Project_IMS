@@ -16,8 +16,12 @@
 
 <div id="InventoryArea" class="MainListArea">
 	<div id="InventoryTitle" class="MainNavTitle dFlex">
-		<span class="ListTitleName">재고 목록 리스트</span>							
-		<span id="Inventory" class="ListTitleMenu">..더보기</span>
+		<span class="ListTitleName">재고 목록 리스트</span>			
+		<span id="Inventory" class="ListTitleMenu" onclick="fnInventoryList(this);">..더보기</span>
+		<form id="Menu_inventoryList" method="post">
+			<input type="hidden" id="Shop_Name" name="Shop_Name" value="<%= Shop_Name  %>"></input>
+			<input type="hidden" id="Shop_Code" name="Shop_Code" value="<%= Shop_Code  %>"></input>
+		</form>				
 	</div>
 	<!-- div#InventoryTitle -->
 			

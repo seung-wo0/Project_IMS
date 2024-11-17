@@ -1,6 +1,9 @@
 package com.project.ims.Controller;
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,12 +24,62 @@ public class MemberController {
 	MemberSvc MemberSvc;
 	@Autowired
 	ShopListSvc ShopListSvc;
+	// 회원가입 전 동의 페이지
+	@RequestMapping("/tos") 
+	public String mtdJoinTos() {
+		return "Member/tos";
+	}
 	
 	// 회원가입 페이지
-	@RequestMapping("/Join") 
+	@RequestMapping("/join") 
 	public String mtdJoin() {
 		return "Member/MemberJoin";
 	}
+	
+	//ID 중복 체크
+	@RequestMapping("/chkID")
+	public String mtdChkID(HttpServletRequest req, HttpSession session) {
+		
+		String resTxt = "";
+		String JoinUserID = req.getParameter("JoinUserID");
+		
+		int chknum = MemberSvc.chkID(JoinUserID);
+		
+		if(chknum==1) {
+			resTxt = "이미 있는 아이디입니다.";
+			session.setAttribute("nowID",JoinUserID);
+			session.setAttribute("resTxt",resTxt);
+		} else {
+			resTxt = "사용 가능한 아이디입니다.";
+			session.setAttribute("nowID",JoinUserID);
+			session.setAttribute("resTxt",resTxt);
+		}
+		
+		return "redirect:/join";
+	}
+	
+	// 회원가입 처리 페이지
+	@RequestMapping("/JoinProc") 
+	public String mtdJoinProc(HttpServletRequest req) {
+		String JoinUserID = req.getParameter("JoinUserID");
+		String JoinUserPW = req.getParameter("JoinUserPW");
+		String userPhone = req.getParameter("userPhone");
+		String userEmail = req.getParameter("userEmail");
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("item1", JoinUserID);
+		map.put("item2", JoinUserPW);
+		map.put("item3", userPhone);
+		map.put("item4", userEmail);
+		
+		MemberSvc.mtdJoinProc(map);
+		System.out.println("JoinUserID : " + JoinUserID);
+		System.out.println("JoinUserPW : " + JoinUserPW);
+		System.out.println("userPhone : " + userPhone);
+		System.out.println("userEmail : " + userEmail);
+		return "Member/MemberJoinProc";
+	}
+	
 	
 	// 로그인 처리 페이지
 	@RequestMapping("/LoginProc")

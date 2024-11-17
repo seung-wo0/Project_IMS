@@ -10,4 +10,6 @@ public interface MemberSvc {
 	MemberDto findMemInfo(String uid);
 	List<MemberDto> mtdMemberList();
 	void mtdMemberShopAuthUpdate(Map<String,Object> map);
+	int chkID(String JoinUserID);
+	void mtdJoinProc(Map<String, Object> map);
 }
