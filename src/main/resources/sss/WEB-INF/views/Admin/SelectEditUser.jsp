@@ -11,7 +11,6 @@
 		userAuth_session = (int)session.getAttribute("userAuth_session");
 	}
 	
-
 %>
 <!DOCTYPE html>
 <html lang="ko">

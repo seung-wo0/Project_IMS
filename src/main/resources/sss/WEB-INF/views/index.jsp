@@ -12,9 +12,11 @@
 	String Shop_Name_Session = "";
 	
 	if(userID_session == "" || userID_session != null) {
-		userAuth_session = (int)session.getAttribute("userAuth_session");	
-		Shop_Code_session = (int)session.getAttribute("Shop_Code_session");
+		Object userAuth_session_obj = session.getAttribute("userAuth_session");
+		Object Shop_Code_session_obj = session.getAttribute("Shop_Code_session");
 		
+		if (userAuth_session_obj != null) userAuth_session = (Integer) userAuth_session_obj;
+		if (Shop_Code_session_obj != null) Shop_Code_session = (Integer) Shop_Code_session_obj;
 		if (userAuth_session == 2) AuthName = "총 관리자";
 		if (userAuth_session == 1) AuthName = "부 관리자";
 		if (userAuth_session == 0) { // 일반멤버들
@@ -92,10 +94,12 @@
 					<!-- div#ShopListArea -->
 				</div>
 				<!-- div#loginStateMenu -->
+		<% } %>
 				
 				<br>
 				
 				<main id="main" class="MainWrap dFlex">
+					
 					
 <!-- 					<div id="SelectValueArea" class="selectMenu"> -->
 <!-- 						<span>선택한 메뉴 : </span> -->
@@ -108,7 +112,6 @@
 				</main>
 		</div>
 <!-- 		div#LoginFormArea -->
-		<% } %>
 		
 	</div>
 	<!-- div#wrap -->

@@ -1,6 +1,7 @@
 package com.project.ims.svc;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,4 +25,14 @@ public class ShopInventorySvcImp implements ShopInventorySvc {
 		return ShopInventoryDao.mtdInventoryListLimit(Shop_Code);
 	}
 
+	@Override
+	public ShopInventoryDto mtdInventoryItemCntViews(int Shop_Code, String item_Name) {
+		return ShopInventoryDao.mtdInventoryItemCntViews(Shop_Code, item_Name);
+	}
+	
+	@Override
+	public int mtdInventoryItemCntUpdate(Map<String, Object> map) {
+		return ShopInventoryDao.mtdInventoryItemCntUpdate(map);
+	}
+	
 }

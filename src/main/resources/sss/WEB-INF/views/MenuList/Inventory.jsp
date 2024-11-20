@@ -6,7 +6,6 @@
 	String Shop_Code = request.getParameter("Shop_Code");
 	String Shop_Name = request.getParameter("Shop_Name");
 %>
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -16,8 +15,18 @@
 </head>
 <body>
 	<div id="wrap" class="InventoryListWrap">
-		<header id="header" class="InventoryListHeader">
-			<h1>[ <%= Shop_Name %> ] 매장관리 - 재고관리</h1>
+		<header id="header" class="InventoryListHeader dFlex">
+			<h2>[ <%= Shop_Name %> ] 매장관리 - 재고관리</h2>
+			
+			<div id="headerMenu" class="headerMenu dFlex">
+				<button id=InventoryChangeBtn class="InventoryChangeBtn">재고변경</button>
+				<input type="hidden" id="Shop_Code" name="Shop_Code" value="<%= Shop_Code %>"/>
+				<input type="hidden" id="Shop_Name" name="Shop_Name" value="<%= Shop_Name %>"/>
+				<button id="InventorySell" class="InventorySell">재고판매</button>
+				
+				<span class="backPage">돌아가기..</span>
+			</div>
+			
 		</header>
 		
 		<main id="main" class="InventoryListMain">
