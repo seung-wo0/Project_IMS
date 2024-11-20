@@ -19,9 +19,11 @@
     - <img src="https://github.com/user-attachments/assets/2e593d72-0138-4c86-8f12-e935838720d7" width="100%" title="20241111_2 멤버용 매장 리스트출력2" />
 
 - 2024.11.14
+
   - ajax 를 통하여 비동기식 으로 지정받은 관리매장에 관한 물품(재고)리스트 추가
     - <img src="https://github.com/user-attachments/assets/40457ced-7099-4175-ae78-3114bc16d7e6" width="100%" title="20241114_1 관리자 매장1 재고리스트" />
     - <img src="https://github.com/user-attachments/assets/084ffb68-b975-4de1-aed5-87c057a27b06" width="100%" title="20241114_1 관리자 매장2 재고리스트" />
+
 - 2024.11.15
 
   - 관리자 메뉴 회원관리 에서 메인으로 돌아갈수있는 "돌아가기" 버튼 추가
@@ -37,7 +39,11 @@
   - 회원가입 페이지 의 약관 체크 및 동의 후 회원가입 페이지 이동 및 가입절차 및 가입등록
     - <img src="https://github.com/user-attachments/assets/136b98a5-143e-48fc-a9d9-c7367ef01cb2" width="100%" title="20241117_2 회원가입 관련" />
 
-- 2024.11.18
-  - 매장별 재고관리 탭 "재고변경", "재고판매" 버튼 추가
-  - 재고변경-재고선택시 선택한 상품에 따라 비동기식 으로 재고수량 불러오기
-  - 재고변경 수량 정상 입력시 추가,삭제 에 따른 계산 및 데이터 처리 후 alert로 처리결과 보여 준 후 자식창 close 및 부모창 새로고침
+- 2024.11.20
+
+  - 매장별 재고관리 페이지 "재고변경", "재고판매" 버튼 추가
+    - <img src="https://github.com/user-attachments/assets/5c89402c-c736-40c6-b81c-f636ad9d26b0" width="100%" title="20241120_1 재고관리페이지 버튼추가" />
+  - "재고변경"-재고선택시 선택한 상품에 따라 비동기식 으로 재고수량 불러오기
+  - "재고변경" 수량 정상 입력시 추가,삭제 에 따른 계산 및 데이터 처리 후 alert로 처리결과 보여 준 후 자식창 close 및 부모창 새로고침
+    - <img src="https://github.com/user-attachments/assets/5b47f6cf-bfd8-48d2-a906-da57549f38b4" width="100%" title="20241120_2,3 재고관리페이지 버튼추가" />
+  - "재고판매" 는 현재 미작업
