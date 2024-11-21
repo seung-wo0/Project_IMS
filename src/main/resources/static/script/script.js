@@ -1,6 +1,7 @@
 $(function () {
-
-	$(document).ready(function() { //메인홈페이지 관련
+	
+	//메인홈페이지 관련
+	$(document).ready(function() { 
 		$("#main_home").click(function() {
 			window.location.href = "/";
 		});
@@ -19,25 +20,30 @@ $(function () {
 			}
 		});
 		
-		$(".Join_Btn").click(function() { //회원가입 전 동의페이지
+		//회원가입 전 동의페이지
+		$(".Join_Btn").click(function() { 
 			window.location.href = "/tos";
 		});
 		
-		$(".Logout_Btn").click(function() { //모든 세션 종료
+		//모든 세션 종료
+		$(".Logout_Btn").click(function() { 
 			window.location.href = "/Logout";
 		});
 		
-		$(".Member_Edit").click(function() { //관리자용 멤버관리
+		//관리자용 멤버관리
+		$(".Member_Edit").click(function() { 
 			window.location.href = "/Member_Edit";
 		});
 		
-		$(".backPage").click(function() { //이전으로돌아가기
-			history.go(-1);
+		//이전으로돌아가기
+		$(".backPage").click(function() { 
+			window.location.href = "/";
 		});
 		
 	});
 	
-	$(document).ready(function(){ //인벤토리 - 재고관리 관련
+	//인벤토리 - 재고관리 관련
+	$(document).ready(function(){ 
 		$(".InventoryChangeBtn").click(function() {
 			var Shop_Code = $("#Shop_Code").val();
 			var Shop_Name = $("#Shop_Name").val();
@@ -53,7 +59,6 @@ $(function () {
 		    var top = (screenHeight / 2) - (400 / 2);
 			
 			OpenWin_variety(InventoryChangeBtn, Shop_Name + '재고 추가/삭제', 600, 400, top, left);
-//			window.location.href="InventoryAddNDel?Shop_Code="+Shop_Code;
 		});
 		
 		$("#ShopInvenList").change(function() {
@@ -78,11 +83,11 @@ $(function () {
 		                    async: true,
 		                    success: function (data) {
 		                        $("#NowCnt").val(data.item_Cnt);
-		                        console.log("재고 비동기 통신 성공");
+//		                        console.log("재고 비동기 통신 성공");
 		                        loading = false;
 		                    },
 		                    error: function () {
-		                        console.log("비동기 통신 실패");
+//		                        console.log("비동기 통신 실패");
 		                        loading = false;
 		                    }
 		                });
@@ -164,9 +169,9 @@ $(function () {
 				$(".MainWrap").text("관리 매장을 선택 하세요.");
 			}
 			
-			console.log("Svalue = " + SValue);
-			console.log("SVname = " + SVname);
-			console.log($(".Svalue").text());
+//			console.log("Svalue = " + SValue);
+//			console.log("SVname = " + SVname);
+//			console.log($(".Svalue").text());
 			loadMoreContent();
 		});
 		
@@ -174,17 +179,18 @@ $(function () {
 
 });
 
-
+//jsp 파일내 ".ListTitleMenu" 의 onclick 이벤트
 function fnInventoryList(MenuName) {
     var PageName = $(MenuName).attr("id");
     console.log("더보기를 클릭함 : " + PageName);
 	var Shop_Code = $("#ShopList :selected").val();
 	console.log("선택한 매장 코드 : " + Shop_Code);
-//			location.href = "Menu_" + PageName;
+//	location.href = "Menu_" + PageName;
 		
 	$("#Menu_inventoryList").attr("action", "Menu_" + PageName).submit();
 }
 
+//재고관리 자식창 페이지 
 function OpenWin_variety(url, windowName, width, height, top, left) {
     var newWindow = window.open(url, windowName, 
         "width=" + width + 

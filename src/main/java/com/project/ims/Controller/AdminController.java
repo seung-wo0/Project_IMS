@@ -23,32 +23,35 @@ public class AdminController {
 	@Autowired
 	ShopListSvc ShopListSvc;
 	
+	//관리자용 멤버의전체 리스트 관련
 	@RequestMapping("/Member_Edit")
-	public String mtdMember_Edit (Model model) { //관리자 로그인시 관리자편집기능체크
+	public String mtdMember_Edit (Model model) { 
 		model.addAttribute("memberList", MemberSvc.mtdMemberList());
-		System.out.println(MemberSvc.mtdMemberList());
+//		System.out.println(MemberSvc.mtdMemberList());
 		return "Admin/MemberEdit";
 	}
 	
+	//관리자용 멤버의 관리매장 추가 관련
 	@RequestMapping("/EditUserPage")
 	public String mtdSelectUserEdit (HttpServletRequest req , Model model, HttpSession session) {
 		String SelectUserID = req.getParameter("SelectUserID");
 		model.addAttribute("SelectUserID", SelectUserID);
-		System.out.println("ShopListSvc.mtdAllShopList(): " + ShopListSvc.mtdAllShopList());
+//		System.out.println("ShopListSvc.mtdAllShopList(): " + ShopListSvc.mtdAllShopList());
 //		session.setAttribute("shopList", ShopListSvc.mtdAllShopList());
 		model.addAttribute("shopList", ShopListSvc.mtdAllShopList());
 		return "Admin/SelectEditUser";
 	}
 	
+	//관리자용 멤버의 관리매장 추가처리 관련
 	@RequestMapping("/MemberShopAuthProc")
 	public String mtdMemberShopAuthProc (HttpServletRequest req , Model model, HttpSession session) {
 		String SelectUserID = req.getParameter("SelectUserID");
 		String selectShop = req.getParameter("selectShop");
-		System.out.println("SelectUserID : " + SelectUserID);
-		System.out.println("selectShop : " + selectShop);
+//		System.out.println("SelectUserID : " + SelectUserID);
+//		System.out.println("selectShop : " + selectShop);
 		Map<String,Object> map = new HashMap<String, Object>();
 		if (selectShop == "" || selectShop == null) {
-			System.out.println("selectShop공백 : " + selectShop);
+//			System.out.println("selectShop공백 : " + selectShop);
 			selectShop = "0";
 		} 
 			map.put("item1", SelectUserID);

@@ -19,27 +19,12 @@
 		select * from memberList where userID=#{param1} or userEmail=#{param1}
 	</select>
 
-<!-- 비밀번호 변경 -->
-	<update id="pwdChange">
-		update memberList set userPW=#{param3} where (userID=#{param1} and userEmail=#{param2})
-	</update>
-	
-<!-- 	아이디 중복 체크하기 -->
+<!-- 아이디 중복 체크하기 -->
 	<select id="chkID" resultType="int">
 		select count(*) from memberList where userID like (#{param1})
 	</select>
 	
-<!-- 	회원정보 수정 -->
-	<update id="myPageProc">
-		update memberList set userPW=#{item2},nickname=#{item3},userEmail=#{item4} where userID=#{item1}
-	</update>
-	
-	
 </mapper>
-
-
-
-	
 
 <!-- 삭제하기 -->
 
@@ -51,7 +36,6 @@
 <!-- 			#{item} -->
 <!-- 		</foreach> -->
 <!-- </delete> -->
-	
 	
 	
 <!-- <mapper namespace="dao 경로와 인터페이스명"> -->

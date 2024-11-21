@@ -7,11 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project.ims.dto.ShopInventoryDto;
@@ -25,7 +23,8 @@ public class InventoryManagerController {
 	@Autowired
 	ShopInventorySvc ShopInventorySvc;
 	
-	@RequestMapping("/ShopManageMent") //재고관리페이지 ajax
+	//재고관리 전체 페이지 (ajax) 관련 mainController에서 테스트완료후 코드이식 (script/script  ajax => url: "/test", 부분 변경해야함)
+	@RequestMapping("/ShopManageMent") 
 	public String mtdShopManageMentList (Model model, 
 			@RequestParam("Shop_Code") int Shop_Code, 
 			@RequestParam("Shop_Name") String Shop_Name ) {
@@ -38,9 +37,8 @@ public class InventoryManagerController {
 		return "Inventory/InventoryAreaPage";
 	}
 	
-	/////////////////////////////////////////
-	////// 인벤토리재고 추가,삭제 관련 //////
-	/////////////////////////////////////////
+
+	//인벤토리 재고변경 페이지 관련
 	@RequestMapping("/InventoryUpdateCntView") //페이지 내 
 	public String mtdInventoryAddNDel (HttpServletRequest req, Model model) {
 //		String Shop_Name = req.getParameter("Shop_Name");
@@ -52,7 +50,8 @@ public class InventoryManagerController {
 		return "Inventory/InventoryUpdateCnt";
 	}
 	
-	@RequestMapping("/InventoryItemCnt") //ajax 재고수량카운터
+	//인벤토리재고 재고변경 페이지 현재재고수량 관련(ajax처리 재고수량 카운트) 
+	@RequestMapping("/InventoryItemCnt") 
 	@ResponseBody
 	public ShopInventoryDto mtdInventoryItemCntViews(HttpServletRequest req, Model model) {
 		int Shop_Code = Integer.parseInt(req.getParameter("Shop_Code"));
@@ -62,6 +61,7 @@ public class InventoryManagerController {
 		return ShopInventoryDto;
 	}
 
+	//인벤토리재고 추가,삭제 처리관련
 	@RequestMapping("/invenUpdateProc")
 	public String mtdInventoryUpdateProc(HttpServletRequest req, RedirectAttributes redirectAttributes) {
 	    int NowCnt = Integer.parseInt(req.getParameter("NowCnt"));
@@ -70,14 +70,9 @@ public class InventoryManagerController {
 	    int item_InputCnt = Integer.parseInt(req.getParameter("Inven_UpdateCnt"));
 	    String ClickBtn = req.getParameter("ClickBtn");
 	    String SuccessMsg = "페이지에 오류 발생! 재시도 해 주세요";
-
-	    // 클릭된 버튼 분석
 	    String WhatIsClickBtn = (ClickBtn != null && ClickBtn.length() > 12) ? ClickBtn.substring(12) : "";
-
-	    // 추가/삭제 버튼에 따른 변경량 계산
 	    int item_UpdateCnt = WhatIsClickBtn.equals("AddBtn") ? item_InputCnt : -item_InputCnt;
 
-	    // 재고 검증 및 처리
 	    if (NowCnt + item_UpdateCnt <= -1) {
 	        SuccessMsg = "변경 실패ㅠ_ㅠ 재시도 해주세요!";
 	    } else {
@@ -89,11 +84,11 @@ public class InventoryManagerController {
 	        SuccessMsg = "변경 완료!";
 	    }
 
-	    // 성공 메시지 전달
 	    redirectAttributes.addFlashAttribute("SuccessMsg", SuccessMsg);
 	    return "redirect:/InventorySuccess";
 	}
 
+	//인벤토리재고 추가,삭제 처리결과 관련
 	@RequestMapping("InventorySuccess")
 	public String mtdInventoryUpdateSuccessPage(@ModelAttribute("SuccessMsg") String SuccessMsg, Model model) {
 	    model.addAttribute("SuccessMsg", SuccessMsg);

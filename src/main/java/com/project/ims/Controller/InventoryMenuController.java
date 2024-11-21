@@ -23,10 +23,8 @@ public class InventoryMenuController {
 		int Shop_Code = Integer.parseInt(req.getParameter("Shop_Code"));
 		model.addAttribute("ShopInventoryList", ShopInventorySvc.mtdAllInventoryList(Shop_Code));
 //		System.out.println("Shop_Name : " + Shop_Name);
-		System.out.println("Shop_Code : " + Shop_Code);
-		
-		
-		
+//		System.out.println("Shop_Code : " + Shop_Code);
+
 		return "MenuList/Inventory";
 	}
 	

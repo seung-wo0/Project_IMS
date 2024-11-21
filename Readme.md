@@ -47,3 +47,7 @@
   - "재고변경" 수량 정상 입력시 추가,삭제 에 따른 계산 및 데이터 처리 후 alert로 처리결과 보여 준 후 자식창 close 및 부모창 새로고침
     - <img src="https://github.com/user-attachments/assets/5b47f6cf-bfd8-48d2-a906-da57549f38b4" width="100%" title="20241120_2,3 재고관리페이지 버튼추가" />
   - "재고판매" 는 현재 미작업
+
+- 2024.11.21
+  - "Controller" 코드 간소화
+  - "dao", "svc" 파일 작동메서드 명시 및 "dto" 내부 설명 명시
