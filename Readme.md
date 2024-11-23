@@ -1,7 +1,6 @@
 <img src="https://github.com/user-attachments/assets/fb1227e0-5f55-46a0-ae08-6b1b0dc6c451" width="800" height="400" title="DB 설계도" />
 
 - 2024.11.07
-
   - 페이지 총 관리자 권한 확인 후 로그인시 회원관리 탭 추가
     - <img src="https://github.com/user-attachments/assets/72597918-2c30-436f-ba3a-255a433a0c36" width="100%" title="20241107_1 일반회원 로그인" />
     - <img src="https://github.com/user-attachments/assets/214f0e73-619b-473c-b003-f9bcf5bc92f0" width="100%" title="20241107_2 관리자 로그인" />
@@ -11,7 +10,6 @@
     - <img src="https://github.com/user-attachments/assets/1bb91926-37e1-4c44-a20d-4e9f8f127e1b" width="100%" title="20241107_4 관리자용 멤버 리스트호버" />
 
 - 2024.11.11
-
   - 관리자 관리매장 리스트전체목록 확인
     - <img src="https://github.com/user-attachments/assets/5b4fee8f-ff3d-4cdf-bcfa-7fffe79713cc" width="100%" title="20241111_2 관리자용 매장 리스트출력" />
   - 관리매장 등록된 회원 리스트 목록 확인
@@ -19,13 +17,11 @@
     - <img src="https://github.com/user-attachments/assets/2e593d72-0138-4c86-8f12-e935838720d7" width="100%" title="20241111_2 멤버용 매장 리스트출력2" />
 
 - 2024.11.14
-
   - ajax 를 통하여 비동기식 으로 지정받은 관리매장에 관한 물품(재고)리스트 추가
     - <img src="https://github.com/user-attachments/assets/40457ced-7099-4175-ae78-3114bc16d7e6" width="100%" title="20241114_1 관리자 매장1 재고리스트" />
     - <img src="https://github.com/user-attachments/assets/084ffb68-b975-4de1-aed5-87c057a27b06" width="100%" title="20241114_1 관리자 매장2 재고리스트" />
 
 - 2024.11.15
-
   - 관리자 메뉴 회원관리 에서 메인으로 돌아갈수있는 "돌아가기" 버튼 추가
     - <img src="https://github.com/user-attachments/assets/6f31f595-00a7-498f-b932-1d0ebc300958" width="100%" title="20241115_1 관리자 멤버관리 돌아가기" />
   - 관리자 메뉴 회원관리 에서 멤버클릭시 관리매장추가리스트 출력 및 멤버의 매장을 추가
@@ -40,7 +36,6 @@
     - <img src="https://github.com/user-attachments/assets/136b98a5-143e-48fc-a9d9-c7367ef01cb2" width="100%" title="20241117_2 회원가입 관련" />
 
 - 2024.11.20
-
   - 매장별 재고관리 페이지 "재고변경", "재고판매" 버튼 추가
     - <img src="https://github.com/user-attachments/assets/5c89402c-c736-40c6-b81c-f636ad9d26b0" width="100%" title="20241120_1 재고관리페이지 버튼추가" />
   - "재고변경"-재고선택시 선택한 상품에 따라 비동기식 으로 재고수량 불러오기
@@ -52,12 +47,13 @@
   - "Controller" 코드 간소화
   - "dao", "svc" 파일 작동메서드 명시 및 "dto" 내부 설명 명시
     - <img src="https://github.com/user-attachments/assets/8b2db4c7-2c72-454f-b89b-6cf2a8bbe534" width="100%" title="20241122_2 dao,svc파일 작동메서드명시" />
+    
 - 2024.11.24
   - 재고판매버튼 활성화 및 재고변경과 같은로직으로 처리
     - <img src="https://github.com/user-attachments/assets/633c7c4c-2940-4d1c-975c-94ff7440b0a9" width="100%" title="20241124_1 재고판매버튼시" />
   - "ShopSellStatus"(재고판매) 가되면 판매정산 리스트에 추가
   - 판매정산 리스트 를 index 메인페이지에 최근 5개항목을 추가
     - <img src="https://github.com/user-attachments/assets/08198907-1094-44b0-9037-b48e724f31b2" width="100%" title="20241124_2,3 index페이지 정산리스트추가" />
-  - 각 상세페이지 가격표기 "###,### 원# 패턴을 추가
+  - 각 상세페이지 가격표기 "###,### 원" 패턴을 추가
   - 판매정산리스트 "더보기" 시 위부터 최근순으로 전체적인 판매리스트를 확인하고 총판매금액을 우측상단에 표기
     - <img src="https://github.com/user-attachments/assets/850b8321-2f07-4236-9835-8e16f1cb722c" width="100%" title="20241124_5 판매정산리스트 더보기 시" />
