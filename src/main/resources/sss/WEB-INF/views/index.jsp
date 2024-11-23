@@ -5,26 +5,51 @@
 <%
 	String userID_session = (String)session.getAttribute("userID_session"); //uid 세션 부여
 	String userPW_session = (String)session.getAttribute("userPW_session");	//닉네임 세션 부여
+
+    Object userAuth_session_obj = session.getAttribute("userAuth_session");
+    Object shop_Code_session_obj = session.getAttribute("Shop_Code_session");
+	Object Shop_Name_Session_obj = session.getAttribute("Shop_Name_Session");
+
+// 	out.print("userAuth_session : " + userAuth_session_str + "<br/>");
+// 	out.print("Shop_Code_session : " + Shop_Code_session_str);
 	
 	int userAuth_session = 0;
 	int Shop_Code_session = 0;
 	String AuthName = "";
-	String Shop_Name_Session = "";
+	Object Shop_Name_Session = "";
 	
 	if(userID_session == "" || userID_session != null) {
-		Object userAuth_session_obj = session.getAttribute("userAuth_session");
-		Object Shop_Code_session_obj = session.getAttribute("Shop_Code_session");
 		
-		if (userAuth_session_obj != null) userAuth_session = (Integer) userAuth_session_obj;
-		if (Shop_Code_session_obj != null) Shop_Code_session = (Integer) Shop_Code_session_obj;
-		if (userAuth_session == 2) AuthName = "총 관리자";
-		if (userAuth_session == 1) AuthName = "부 관리자";
-		if (userAuth_session == 0) { // 일반멤버들
-			AuthName = userID_session;
-			if (Shop_Code_session > 0) {
-				Shop_Name_Session = (String)session.getAttribute("Shop_Name_Session");
-			}
+		if (userAuth_session_obj != null && !userAuth_session_obj.toString().isEmpty()) {
+		    try {
+		    	userAuth_session = Integer.valueOf(userAuth_session_obj.toString());
+		    } catch (NumberFormatException e) {
+		        Shop_Code_session = 0; 
+		    }
 		}
+		
+    	if (shop_Code_session_obj != null && !shop_Code_session_obj.toString().isEmpty()) {
+		    try {
+		    	Shop_Code_session = Integer.valueOf(shop_Code_session_obj.toString());
+		    } catch (NumberFormatException e) {
+		    	shop_Code_session_obj = 0; 
+		    }
+		}
+// 		if (userAuth_session_obj!= null || userAuth_session_obj != "") userAuth_session = Integer.valueOf(userAuth_session_obj.toString());
+// 		if (shop_Code_session_obj != null || shop_Code_session_obj != "") Shop_Code_session = Integer.valueOf(shop_Code_session_obj.toString());
+
+		if (userAuth_session == 1) AuthName = "부 관리자";
+		if (userAuth_session == 2) AuthName = "총 관리자";
+		if (userAuth_session == 0) AuthName = userID_session;
+		
+		if (Shop_Code_session > 0) {
+			Shop_Name_Session = Shop_Name_Session_obj;
+		}
+	} else {
+		userAuth_session = 0;
+		Shop_Code_session = 0;
+		AuthName = "";
+		Shop_Name_Session = "";
 	}
 %>
 
@@ -99,8 +124,9 @@
 				<br>
 				
 				<main id="main" class="MainWrap dFlex">
-					
-					
+				<%if (userID_session == "" || userID_session != null) { %>
+					<span>관리 매장을 선택 해 주세요</span>
+				<% } %>
 <!-- 					<div id="SelectValueArea" class="selectMenu"> -->
 <!-- 						<span>선택한 메뉴 : </span> -->
 <!-- 						<span id="SValue" class="SValue"></span> -->

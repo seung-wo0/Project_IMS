@@ -37,7 +37,6 @@ public class MemberSvcImp implements MemberSvc {
 	@Override
 	public void mtdMemberShopAuthUpdate(Map<String, Object> map) {
 		MemberDao.mtdMemberShopAuthUpdate(map);
-		
 	}
 	
 	@Override

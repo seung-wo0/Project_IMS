@@ -37,14 +37,14 @@ $(function () {
 		
 		//이전으로돌아가기
 		$(".backPage").click(function() { 
-			window.location.href = "/";
+			history.back();
 		});
 		
 	});
 	
 	//인벤토리 - 재고관리 관련
 	$(document).ready(function(){ 
-		$(".InventoryChangeBtn").click(function() {
+		$(".InventoryChangeBtn").click(function() { //원본
 			var Shop_Code = $("#Shop_Code").val();
 			var Shop_Name = $("#Shop_Name").val();
 			console.log("인벤토리 추가삭제클릭여부  : " + Shop_Code);
@@ -61,6 +61,7 @@ $(function () {
 			OpenWin_variety(InventoryChangeBtn, Shop_Name + '재고 추가/삭제', 600, 400, top, left);
 		});
 		
+
 		$("#ShopInvenList").change(function() {
 			var SValue = $("#ShopInvenList :selected").val();//셀렉트 옵션 값
 //			var SVname = $("#ShopInvenList :selected").text();//셀렉트 값 이름
@@ -104,7 +105,8 @@ $(function () {
 			loadMoreContent();
 		});
 		
-		$(".Inven_UpdateBtn").click(function(){ //인벤토리수정창 클래스
+		//인벤토리 재고변경 클릭 이벤트
+		$(".Inven_UpdateBtn").click(function(){ 
 			
 			var Inven_UpdateCnt = $("#Inven_UpdateCnt").val();
 			var WhatBtn = $(this).attr("id");
@@ -120,6 +122,40 @@ $(function () {
 			
 		});
 	
+		//인벤토리 재고판매 클릭 이벤트
+		$(".InventoryItemSellBtn").click(function(){
+			var Shop_Code = $("#Shop_Code").val();
+			var Shop_Name = $("#Shop_Name").val();
+			console.log("인벤토리 추가삭제클릭여부  : " + Shop_Code);
+			var InventoryItemSellBtn = "InventoryItemSell?Shop_Code=" + Shop_Code + "&Shop_Name="+Shop_Name;
+		
+		    // 화면 크기
+		    var screenWidth = window.innerWidth;
+		    var screenHeight = window.innerHeight;
+		
+		    // 팝업 창의 위치 (화면의 중앙으로 계산)
+		    var left = (screenWidth / 2) - (600 / 2);
+		    var top = (screenHeight / 2) - (400 / 2);
+			
+			OpenWin_variety(InventoryItemSellBtn, Shop_Name + '재고 판매', 600, 400, top, left);
+		});
+		
+		//인벤토리 재고판매 클릭 이벤트
+		$(".Inven_ItemSellBtn").click(function(){ 
+			
+			var Inven_UpdateCnt = $("#Inven_UpdateCnt").val();
+			var WhatBtn = $(this).attr("id");
+			if (Inven_UpdateCnt == "" || Inven_UpdateCnt == null || Inven_UpdateCnt == "0") {
+				$("#Inven_SellCnt").focus();
+				alert("추가 및 삭제 할 수량을 입력 해 주세요");
+			} else {
+//				console.log( WhatBtn +" 버튼누름 : " + Inven_UpdateCnt);
+				$("#inven_itemSellFrm").attr("method","post");
+				$("#inven_itemSellFrm").attr("action","invenUpdateProc?ClickBtn="+WhatBtn);
+				$("#inven_itemSellFrm").submit();
+			}
+			
+		});
 		
 	});
 	

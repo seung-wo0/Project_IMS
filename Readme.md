@@ -48,6 +48,16 @@
     - <img src="https://github.com/user-attachments/assets/5b47f6cf-bfd8-48d2-a906-da57549f38b4" width="100%" title="20241120_2,3 재고관리페이지 버튼추가" />
   - "재고판매" 는 현재 미작업
 
-- 2024.11.21
+- 2024.11.22
   - "Controller" 코드 간소화
   - "dao", "svc" 파일 작동메서드 명시 및 "dto" 내부 설명 명시
+    - <img src="https://github.com/user-attachments/assets/8b2db4c7-2c72-454f-b89b-6cf2a8bbe534" width="100%" title="20241122_2 dao,svc파일 작동메서드명시" />
+- 2024.11.24
+  - 재고판매버튼 활성화 및 재고변경과 같은로직으로 처리
+    - <img src="https://github.com/user-attachments/assets/633c7c4c-2940-4d1c-975c-94ff7440b0a9" width="100%" title="20241124_1 재고판매버튼시" />
+  - "ShopSellStatus"(재고판매) 가되면 판매정산 리스트에 추가
+  - 판매정산 리스트 를 index 메인페이지에 최근 5개항목을 추가
+    - <img src="https://github.com/user-attachments/assets/08198907-1094-44b0-9037-b48e724f31b2" width="100%" title="20241124_2,3 index페이지 정산리스트추가" />
+  - 각 상세페이지 가격표기 "###,### 원# 패턴을 추가
+  - 판매정산리스트 "더보기" 시 위부터 최근순으로 전체적인 판매리스트를 확인하고 총판매금액을 우측상단에 표기
+    - <img src="https://github.com/user-attachments/assets/850b8321-2f07-4236-9835-8e16f1cb722c" width="100%" title="20241124_5 판매정산리스트 더보기 시" />

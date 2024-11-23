@@ -21,13 +21,23 @@ public class ShopInventorySvcImp implements ShopInventorySvc {
 	}
 	
 	@Override
+	public List<ShopInventoryDto> mtdInventoryItemInfo(int Shop_Code, int item_Num) {
+		return ShopInventoryDao.mtdInventoryItemInfo(Shop_Code, item_Num);
+	}
+	
+	@Override
 	public List<ShopInventoryDto> mtdInventoryListLimit(int Shop_Code) {
 		return ShopInventoryDao.mtdInventoryListLimit(Shop_Code);
 	}
-
+	
 	@Override
 	public ShopInventoryDto mtdInventoryItemCntViews(int Shop_Code, String item_Name) {
 		return ShopInventoryDao.mtdInventoryItemCntViews(Shop_Code, item_Name);
+	}
+	
+	@Override
+	public int mtdInventoryItemPrice (int Shop_Code, String item_Name) {
+		return ShopInventoryDao.mtdInventoryItemPrice(Shop_Code, item_Name);
 	}
 	
 	@Override

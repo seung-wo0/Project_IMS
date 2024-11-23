@@ -9,15 +9,25 @@
 		select * from Shop_Inventory where Shop_Code = #{param1} order by num desc
 	</select>
 	
+<!-- 해당매장 전체 인벤토리 물품목록 -->
+	<select id="mtdInventoryItemInfo" resultType="com.project.ims.dto.ShopInventoryDto">
+		select * from Shop_Inventory where Shop_Code = #{param1} and num = #{param2} order by num desc
+	</select>
+	
 <!-- 해당매장 메인에서 보여줄 인벤토리 물품목록 -->
 	<select id="mtdInventoryListLimit" resultType="com.project.ims.dto.ShopInventoryDto">
-			select * from Shop_Inventory where Shop_Code = #{param1} order by num desc limit 0,5
+		select * from Shop_Inventory where Shop_Code = #{param1} order by num desc limit 0,5
 	</select>	
 	
 <!-- 해당 매장에 원하는물품 재고확인 -->
 	<select id="mtdInventoryItemCntViews" resultType="com.project.ims.dto.ShopInventoryDto">
-			select * from Shop_Inventory where Shop_Code = #{param1} and item_Name=#{param2}
+		select * from Shop_Inventory where Shop_Code = #{param1} and item_Name=#{param2}
 	</select>	
+	
+<!-- 해당물품의 개별가격 불러오기 -->
+	<select id="mtdInventoryItemPrice" resultType="int">
+		select item_price from Shop_Inventory where Shop_Code = #{param1} and item_Name=#{param2};
+	</select>
 	
 <!-- 해당 매장 재고수량 조정 -->
 	<update id="mtdInventoryItemCntUpdate">

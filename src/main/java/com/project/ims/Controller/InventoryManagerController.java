@@ -14,6 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project.ims.dto.ShopInventoryDto;
 import com.project.ims.svc.ShopInventorySvc;
+import com.project.ims.svc.ShopSellStatusSvc;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -22,6 +23,9 @@ public class InventoryManagerController {
 	
 	@Autowired
 	ShopInventorySvc ShopInventorySvc;
+	@Autowired
+	ShopSellStatusSvc ShopSellStatusSvc;
+	
 	
 	//재고관리 전체 페이지 (ajax) 관련 mainController에서 테스트완료후 코드이식 (script/script  ajax => url: "/test", 부분 변경해야함)
 	@RequestMapping("/ShopManageMent") 
@@ -33,13 +37,14 @@ public class InventoryManagerController {
 //		System.out.println("컨트롤러 Shop_Name: " + Shop_Name);
 		
 		model.addAttribute("Shop_InventoryList", ShopInventorySvc.mtdInventoryListLimit(Shop_Code));
-		
+		model.addAttribute("Shop_SellStatusList", ShopSellStatusSvc.mtdShopSellStatusList(Shop_Code));
+		System.out.println(ShopSellStatusSvc.mtdShopSellStatusList(Shop_Code));
 		return "Inventory/InventoryAreaPage";
 	}
 	
 
 	//인벤토리 재고변경 페이지 관련
-	@RequestMapping("/InventoryUpdateCntView") //페이지 내 
+	@RequestMapping("/InventoryUpdateCntView") 
 	public String mtdInventoryAddNDel (HttpServletRequest req, Model model) {
 //		String Shop_Name = req.getParameter("Shop_Name");
 		int Shop_Code = Integer.parseInt(req.getParameter("Shop_Code"));
@@ -61,7 +66,7 @@ public class InventoryManagerController {
 		return ShopInventoryDto;
 	}
 
-	//인벤토리재고 추가,삭제 처리관련
+	//인벤토리재고 추가,삭제 판매 처리관련
 	@RequestMapping("/invenUpdateProc")
 	public String mtdInventoryUpdateProc(HttpServletRequest req, RedirectAttributes redirectAttributes) {
 	    int NowCnt = Integer.parseInt(req.getParameter("NowCnt"));
@@ -72,7 +77,7 @@ public class InventoryManagerController {
 	    String SuccessMsg = "페이지에 오류 발생! 재시도 해 주세요";
 	    String WhatIsClickBtn = (ClickBtn != null && ClickBtn.length() > 12) ? ClickBtn.substring(12) : "";
 	    int item_UpdateCnt = WhatIsClickBtn.equals("AddBtn") ? item_InputCnt : -item_InputCnt;
-
+	   
 	    if (NowCnt + item_UpdateCnt <= -1) {
 	        SuccessMsg = "변경 실패ㅠ_ㅠ 재시도 해주세요!";
 	    } else {
@@ -84,6 +89,19 @@ public class InventoryManagerController {
 	        SuccessMsg = "변경 완료!";
 	    }
 
+	    // 재고변경이아닌 판매버튼이라면 판매리스트에 추가
+	    if (WhatIsClickBtn.equals("SellBtn")) {
+	    	Map<String, Object> map = new HashMap<>();
+	    	int per_price = ShopInventorySvc.mtdInventoryItemPrice(Shop_Code, item_Name);
+	    	
+	    	map.put("item1", Shop_Code); // 매장코드
+	    	map.put("item2", item_Name); // 판매 물품명
+	    	map.put("item3", item_InputCnt); // 판매한 갯수
+	    	map.put("item4", per_price); // 물품의 개당가격
+	    	map.put("item5", item_InputCnt*per_price); // 갯수*개당가격
+	    	ShopSellStatusSvc.mtdSellStatusUpdate(map);
+	    }
+	    
 	    redirectAttributes.addFlashAttribute("SuccessMsg", SuccessMsg);
 	    return "redirect:/InventorySuccess";
 	}
@@ -93,6 +111,16 @@ public class InventoryManagerController {
 	public String mtdInventoryUpdateSuccessPage(@ModelAttribute("SuccessMsg") String SuccessMsg, Model model) {
 	    model.addAttribute("SuccessMsg", SuccessMsg);
 	    return "Inventory/InventoryUpdateSuccess";
+	}
+	
+	
+	//인벤토리재고 판매 페이지 관련
+	@RequestMapping("InventoryItemSell")
+	public String mtdInventoryItemSellPage(HttpServletRequest req, Model model) {
+		int Shop_Code = Integer.parseInt(req.getParameter("Shop_Code"));
+		model.addAttribute("Inven_List", ShopInventorySvc.mtdAllInventoryList(Shop_Code));
+		
+		return "Inventory/InventoryItemSellPage";
 	}
 	
 }

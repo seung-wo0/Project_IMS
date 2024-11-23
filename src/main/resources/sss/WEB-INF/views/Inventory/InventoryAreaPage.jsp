@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"  %>
 <%
 	String Shop_Code = request.getParameter("Shop_Code");
 	String Shop_Name = request.getParameter("Shop_Name");
@@ -36,10 +36,44 @@
 			<tr class="TableList">
 				<td>${ Shop_I_List.item_Name }</td>
 				<td>${ Shop_I_List.item_Cnt }</td>
-				<td>${ Shop_I_List.item_Price }</td>
+				<td><fmt:formatNumber value="${ Shop_I_List.item_Price }" pattern="###,### 원" /></td>
+<%-- 				<td>${ Shop_I_List.item_Price }</td> --%>
 			</tr>
 			</c:forEach>
 		</table>
 	</div>
 	<!-- div#InventoryList -->
 </div>
+<!-- div#InventoryArea -->
+
+<div id="SellStatusArea" class="MainListArea">
+		
+	<div id="SellStatusTitle" class="MainNavTitle dFlex">
+		<span class="ListTitleName">판매 정산 리스트</span>                                         
+		<span id="SellStatus" class="ListTitleMenu" onclick="fnInventoryList(this);">..더보기</span>
+	</div>
+	<!-- div#SellStatusTitle -->
+	
+	<div id="SellStatusList">
+		<table id="List">
+			<tr class="TableList">
+				<th>상품명</th>
+				<th>판매갯수</th>
+<!-- 				<th>개별가격</th> -->
+				<th>수익금</th>
+			</tr>
+			<c:forEach var="Shop_S_List" items="${ Shop_SellStatusList }">
+			<tr class="TableList">
+				<td>${ Shop_S_List.item_Name }</td>
+				<td>${ Shop_S_List.item_SellCnt }</td>
+<%-- 				<td>${ Shop_S_List.item_Price }</td> --%>
+				<td><fmt:formatNumber value="${ Shop_S_List.item_SellPrice }" pattern="###,### 원"></fmt:formatNumber></td>
+<%-- 				<td>${ Shop_S_List.item_SellPrice }</td> --%>
+			</tr>
+			</c:forEach>
+		</table>
+	</div>
+	<!-- div#SellStatusList -->
+	
+</div>
+<!-- div#SellStatusArea -->

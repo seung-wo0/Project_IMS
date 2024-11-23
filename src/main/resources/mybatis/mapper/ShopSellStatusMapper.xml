@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.ims.dao.ShopSellStatusDao">
+
+<!-- 해당매장 전체 인벤토리 물품목록 -->
+	<select id="mtdAllSellStatusList" resultType="com.project.ims.dto.ShopSellStatusDto">
+		select * from Shop_SellStatus where Shop_Code = #{param1} order by num desc
+	</select>
+
+<!-- 해당매장 메인에서 보여줄 인벤토리 물품목록 -->
+	<select id="mtdShopSellStatusList" resultType="com.project.ims.dto.ShopSellStatusDto">
+		select * from Shop_SellStatus where Shop_Code = #{param1} order by num desc limit 0,5
+	</select>	
+
+<!-- 해당 매장 상품판매 업데이트-->
+	<insert id="mtdSellStatusUpdate" parameterType="java.util.Map">
+		insert into Shop_SellStatus (Shop_Code, item_Name, item_SellCnt, item_Price, item_SellPrice)
+		values (#{item1}, #{item2}, #{item3}, #{item4}, #{item5})
+	</insert>
+
+</mapper>

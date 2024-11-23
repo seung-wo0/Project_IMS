@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.project.ims.svc.MemberSvc;
 import com.project.ims.svc.ShopInventorySvc;
+import com.project.ims.svc.ShopSellStatusSvc;
 
 @Controller
 public class MainController {
@@ -16,6 +17,8 @@ public class MainController {
 	MemberSvc MemberSvc;
 	@Autowired
 	ShopInventorySvc ShopInventorySvc;
+	@Autowired
+	ShopSellStatusSvc ShopSellStatusSvc;
 	
 	// 메인페이지
 	@RequestMapping("/") 
@@ -31,7 +34,8 @@ public class MainController {
 			@RequestParam("Shop_Name") String Shop_Name ) {		
 		
 		model.addAttribute("Shop_InventoryList", ShopInventorySvc.mtdInventoryListLimit(Shop_Code));
-		
+		model.addAttribute("Shop_SellStatusList", ShopSellStatusSvc.mtdShopSellStatusList(Shop_Code));
+
 		return "Inventory/InventoryAreaPage";
 	}
 	

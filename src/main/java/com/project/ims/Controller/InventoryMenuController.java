@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.project.ims.svc.ShopInventorySvc;
+import com.project.ims.svc.ShopSellStatusSvc;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -16,8 +17,11 @@ public class InventoryMenuController {
 	
 	@Autowired
 	ShopInventorySvc ShopInventorySvc;
+	@Autowired
+	ShopSellStatusSvc ShopSellStatusSvc;
 	
-	@RequestMapping("/Menu_Inventory") //첫번째 메뉴 더보기
+	//재고목록 더보기 메서드
+	@RequestMapping("/Menu_Inventory") 
 	public String mtd_Menu_Inventory (HttpServletRequest req, Model model) {
 //		String Shop_Name = req.getParameter("Shop_Name");
 		int Shop_Code = Integer.parseInt(req.getParameter("Shop_Code"));
@@ -28,9 +32,11 @@ public class InventoryMenuController {
 		return "MenuList/Inventory";
 	}
 	
+	//판매정산 더보기 메서드
 	@RequestMapping("/Menu_SellStatus")
-	public String mtd_Menu_SellStatus() {
-		
+	public String mtd_Menu_SellStatus(HttpServletRequest req, Model model) {
+		int Shop_Code = Integer.parseInt(req.getParameter("Shop_Code"));
+		model.addAttribute("Shop_SellStatusList", ShopSellStatusSvc.mtdAllSellStatusList(Shop_Code));
 		return "MenuList/SellStatus";
 	}
 	
