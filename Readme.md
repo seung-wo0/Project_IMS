@@ -1,6 +1,9 @@
 # DB 설계도
- - <img src="https://github.com/user-attachments/assets/fb1227e0-5f55-46a0-ae08-6b1b0dc6c451" width="800" height="400" title="DB 설계도" />
+
+- <img src="https://github.com/user-attachments/assets/fb1227e0-5f55-46a0-ae08-6b1b0dc6c451" width="800" height="400" title="DB 설계도" />
+
 ---
+
 # 2024.11.07
 
 - 페이지 총 관리자 권한 확인 후 로그인시 회원관리 탭 추가
@@ -82,7 +85,7 @@
 
 ---
 
-## [다음 추가 예정]
+## [작업 예정]
 
 - 매장관리-재고관리 에서 "상품추가" 버튼 및 해당하는 작업
 - 상품관리페이지 자체를 현재처럼 재고변경 을 진행하는게아닌, 재고관리 리스트 자체에서 radiobox 로 해당하는부분 체크 하거나 해당하는 라인 클릭 시 새창에서 변경하는
