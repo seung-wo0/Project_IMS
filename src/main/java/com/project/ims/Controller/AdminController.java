@@ -2,6 +2,7 @@ package com.project.ims.Controller;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -61,4 +62,20 @@ public class AdminController {
 		return "Admin/CloseWindow";
 	}
 	
+	@RequestMapping("addShop")
+	public String mtdAddShopPage (Model model) {
+		int RandomShopCode = 0;
+		Random random = new Random();
+		RandomShopCode += random.nextInt(100000,999999);
+		model.addAttribute("RandomShopCode", RandomShopCode);
+		System.out.println("랜덤생성된 샵코드 : " + RandomShopCode);
+		return "Admin/AddShop";
+	}
+	
+	@RequestMapping("addShopProc")
+	public String mtdAddShopTestPage (HttpServletRequest req, Model model) {
+		
+//		System.out.println("랜덤생성된 샵코드 : " + RandomShopCode);
+		return "Admin/CloseWindow";
+	}
 }

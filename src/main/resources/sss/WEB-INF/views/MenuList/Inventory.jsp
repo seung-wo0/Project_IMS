@@ -12,38 +12,43 @@
 <html lang="ko">
 <head>
 	<meta charset="UTF-8">
-	<title>[ <%= Shop_Name %> ] 매장관리 - 재고관리</title>
+	<title>[ <%= Shop_Name %> ] 매장관리 - 상품관리</title>
 	<link rel="stylesheet" href="/style/style.css?v">
 </head>
-
 	<div id="wrap" class="InventoryListWrap">
-		<header id="header" class="InventoryListHeader dFlex">
-			<h2>[ <%= Shop_Name %> ] 매장관리 - 재고관리</h2>
-			
-			<div id="headerMenu" class="headerMenu dFlex">
-				<button id=InventoryChangeBtn class="InventoryChangeBtn">재고변경</button>
-				<input type="hidden" id="Shop_Code" name="Shop_Code" value="<%= Shop_Code %>"/>
-				<input type="hidden" id="Shop_Name" name="Shop_Name" value="<%= Shop_Name %>"/>
-				<button id="InventoryItemSellBtn" class="InventoryItemSellBtn">재고판매</button>
-				
-				<span class="backPage">돌아가기..</span>
-			</div>
+		<header id="header" class="InventoryListHeader">
+		<!-- Header include 부분 시작-->
+		<%@ include file="../inc/Header_inc.jsp" %>
+		<!-- Header include 부분 끝-->
 			
 		</header>
 		
 		<main id="main" class="InventoryListMain">
+			
+			<div id="headerMenu" class="headerMenu dFlex">
+				<h2>[ <%= Shop_Name %> ] 매장관리 - 상품관리</h2>
+				
+				<button id=InventoryItemAddBtn class="InventoryItemAddBtn">상품 추가</button>
+
+					<input type="hidden" id="Shop_Code" name="Shop_Code" value="<%= Shop_Code %>"/>
+					<input type="hidden" id="Shop_Name" name="Shop_Name" value="<%= Shop_Name %>"/>
+
+				
+				<span class="backPage">돌아가기..</span>
+			</div>
+			
 			<div id="InventoryList">
 				<table id="List">
 					<tr class="TableList">
-						<th>상품명</th>
-						<th>재고</th>
-						<th>가격</th>
+						<th id="item_Name">상품명</th>
+						<th id="item_Cnt">재고</th>
+						<th id="item_Price">가격</th>
 					</tr>
 					<c:forEach var="InvenList" items="${ ShopInventoryList }">
-					<tr class="TableList">
-						<td>${ InvenList.item_Name }</td>
-						<td>${ InvenList.item_Cnt }</td>
-						<td><fmt:formatNumber value="${ InvenList.item_Price }" pattern="###,### 원" /></td>
+					<tr class="TableList ItemUpdate">
+						<td id="item_Name">${ InvenList.item_Name }</td>
+						<td id="item_Cnt">${ InvenList.item_Cnt }</td>
+						<td id="item_Price"><fmt:formatNumber value="${ InvenList.item_Price }" pattern="###,### 원" /></td>
 <%-- 						<td> ${ InvenList.item_Price }</td> --%>
 					</tr>
 					</c:forEach>

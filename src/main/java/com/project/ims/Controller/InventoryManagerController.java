@@ -55,23 +55,13 @@ public class InventoryManagerController {
 		return "Inventory/InventoryUpdateCnt";
 	}
 	
-	//인벤토리재고 재고변경 페이지 현재재고수량 관련(ajax처리 재고수량 카운트) 
-	@RequestMapping("/InventoryItemCnt") 
-	@ResponseBody
-	public ShopInventoryDto mtdInventoryItemCntViews(HttpServletRequest req, Model model) {
-		int Shop_Code = Integer.parseInt(req.getParameter("Shop_Code"));
-		String item_Name = req.getParameter("item_Name");
-		ShopInventoryDto ShopInventoryDto = ShopInventorySvc.mtdInventoryItemCntViews(Shop_Code, item_Name);
-		model.addAttribute("ShopInventoryDto", ShopInventoryDto);
-		return ShopInventoryDto;
-	}
 
-	//인벤토리재고 추가,삭제 판매 처리관련
+	//인벤토리재고 추가,삭제,판매 처리관련
 	@RequestMapping("/invenUpdateProc")
 	public String mtdInventoryUpdateProc(HttpServletRequest req, RedirectAttributes redirectAttributes) {
 	    int NowCnt = Integer.parseInt(req.getParameter("NowCnt"));
 	    int Shop_Code = Integer.parseInt(req.getParameter("Shop_Code"));
-	    String item_Name = req.getParameter("ShopInvenList");
+	    String item_Name = req.getParameter("item_Name");
 	    int item_InputCnt = Integer.parseInt(req.getParameter("Inven_UpdateCnt"));
 	    String ClickBtn = req.getParameter("ClickBtn");
 	    String SuccessMsg = "페이지에 오류 발생! 재시도 해 주세요";
@@ -113,14 +103,38 @@ public class InventoryManagerController {
 	    return "Inventory/InventoryUpdateSuccess";
 	}
 	
-	
-	//인벤토리재고 판매 페이지 관련
-	@RequestMapping("InventoryItemSell")
-	public String mtdInventoryItemSellPage(HttpServletRequest req, Model model) {
-		int Shop_Code = Integer.parseInt(req.getParameter("Shop_Code"));
-		model.addAttribute("Inven_List", ShopInventorySvc.mtdAllInventoryList(Shop_Code));
+	@RequestMapping("InventoryAddItem")
+	public String mtdInventoryAddItem (HttpServletRequest req, Model model) {
 		
-		return "Inventory/InventoryItemSellPage";
+		return "Inventory/InventoryAddItem";
+	}
+	
+	@RequestMapping("InventoryAddItemUpdate")
+	public String mtdInventoryAddItemProc (HttpServletRequest req, Model model) {
+		String Shop_Name = req.getParameter("Shop_Code");
+		String addItemName = req.getParameter("AdditemName");
+		String AdditemCnt = req.getParameter("AdditemCnt");
+		String AdditemPrice = req.getParameter("AdditemPrice");
+		System.out.println("Shop_Name : " + Shop_Name);
+		System.out.println("addItemName : " + addItemName);
+		System.out.println("AdditemCnt : " + AdditemCnt);
+		System.out.println("AdditemPrice : " + AdditemPrice);
+		Map<String, Object> map = new HashMap<>();
+		map.put("item1", Shop_Name);
+		map.put("item2", addItemName);
+		map.put("item3", AdditemCnt);
+		map.put("item4", AdditemPrice);
+		int updateProc = ShopInventorySvc.mtdInventoryAddItemProc(map);
+		String ProcMessage = "";
+		if (updateProc == 1) {
+			ProcMessage = "상품추가가 완료 되었습니다 !";
+		} else {
+			ProcMessage = "상품추가에 실패 하였습니다 !";
+		}
+		req.setAttribute("ProcMessage", ProcMessage);
+
+//		System.out.println("처리결과 : " + updateProc);
+		return "Inventory/InventoryAddItemProc";
 	}
 	
 }

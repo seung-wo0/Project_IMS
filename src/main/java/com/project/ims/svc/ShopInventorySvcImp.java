@@ -45,4 +45,9 @@ public class ShopInventorySvcImp implements ShopInventorySvc {
 		return ShopInventoryDao.mtdInventoryItemCntUpdate(map);
 	}
 	
+	@Override
+	public int mtdInventoryAddItemProc(Map<String, Object> map) {
+		return ShopInventoryDao.mtdInventoryAddItemProc(map);
+	}
+	
 }

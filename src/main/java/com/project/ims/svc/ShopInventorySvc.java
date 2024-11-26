@@ -25,5 +25,7 @@ public interface ShopInventorySvc {
 	//재고수량조정시 추가,삭제,변경 처리 메서드
 	int mtdInventoryItemCntUpdate(Map<String, Object> map);
 	
+	//상품 추가 처리 메서드
+	int mtdInventoryAddItemProc(Map<String, Object> map);
 	
 }

@@ -3,8 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 
 <%
-	String Shop_Code = request.getParameter("Shop_Code");
 	String Shop_Name = request.getParameter("Shop_Name");
+	String Shop_Code = request.getParameter("Shop_Code");
+	String item_Name = request.getParameter("item_Name");
+	String item_Cnt = request.getParameter("item_Cnt");
 %>
     
 <link rel="stylesheet" href="/style/style.css?v">

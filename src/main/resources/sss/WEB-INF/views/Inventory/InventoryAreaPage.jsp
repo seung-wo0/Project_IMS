@@ -9,15 +9,40 @@
 // 	out.print("<br><br> 비동기통신 Shop_Code : " + Shop_Code);
 // 	out.print("<br><br> 비동기통신 Shop_Name: " + Shop_Name);
 %>
-    
-<link rel="stylesheet" href="/style/style.css?v">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="/script/script.js"></script>
+<div id="inventoryTodayArea" class="dFlex">
+	<div id="inventoryAddArea" class="TodayAreas">
+		<div id="InventoryAddTitle" class="TodayTitlediv">	
+			<span class="TodayAreaTitle">금일 입고</span>
+		</div>
+		<div id="InventoryAddInfo" class="TodayInfodiv">
+			<span class="TodayAreaInfo">0,000 개</span>
+		</div>
+	</div>
+	
+	<div id="itemSellArea" class="TodayAreas">
+		<div id="itemSellTitle" class="TodayTitlediv">	
+			<span class="TodayAreaTitle">금일 판매</span>
+		</div>
+		<div id="itemSellInfo" class="TodayInfodiv">
+			<span class="TodayAreaInfo">0,000 개</span>
+		</div>
+	</div>
+	
+	<div id="SellPriceArea" class="TodayAreas">
+		<div id="SellPriceTitle" class="TodayTitlediv">	
+			<span class="TodayAreaTitle">금일 수익</span>
+		</div>
+		<div id="SellPriceInfo" class="TodayInfodiv">
+			<span class="TodayAreaInfo">000,000,000 원</span>
+		</div>
+	</div>
+	
+</div>
 
+<div id="content" class="dFlex">
 <div id="InventoryArea" class="MainListArea">
 	<div id="InventoryTitle" class="MainNavTitle dFlex">
-		<span class="ListTitleName">재고 목록 리스트</span>			
-		<span id="Inventory" class="ListTitleMenu" onclick="fnInventoryList(this);">..더보기</span>
+		<span class="ListTitleName">재고 목록</span>			
 		<form id="Menu_inventoryList" method="post">
 			<input type="hidden" id="Shop_Name" name="Shop_Name" value="<%= Shop_Name  %>"></input>
 			<input type="hidden" id="Shop_Code" name="Shop_Code" value="<%= Shop_Code  %>"></input>
@@ -49,8 +74,7 @@
 <div id="SellStatusArea" class="MainListArea">
 		
 	<div id="SellStatusTitle" class="MainNavTitle dFlex">
-		<span class="ListTitleName">판매 정산 리스트</span>                                         
-		<span id="SellStatus" class="ListTitleMenu" onclick="fnInventoryList(this);">..더보기</span>
+		<span class="ListTitleName">판매 정산</span>                                         
 	</div>
 	<!-- div#SellStatusTitle -->
 	
@@ -77,3 +101,4 @@
 	
 </div>
 <!-- div#SellStatusArea -->
+</div>

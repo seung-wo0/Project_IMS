@@ -16,10 +16,16 @@
 </head>
 
 	<div id="wrap" class="SellStatusListWrap">
-		<header id="header" class="SellStatusListHeader dFlex">
-			<h2>[ <%= Shop_Name %> ] 매장관리 - 판매정산</h2>
-			
+		<header id="header" class="SellStatusListHeader">
+			<!-- Header include 부분 시작-->
+			<%@ include file="../inc/Header_inc.jsp" %>
+			<!-- Header include 부분 끝-->
+		
+		</header>
+	
+		<main id="main" class="SellStatusListMain">
 			<div id="headerMenu" class="headerMenu dFlex">
+				<h2>[ <%= Shop_Name %> ] 매장관리 - 판매정산</h2>
 <!-- 				<button id=InventoryChangeBtn class="InventoryChangeBtn">재고변경</button> -->
 				<input type="hidden" id="Shop_Code" name="Shop_Code" value="<%= Shop_Code %>"/>
 				<input type="hidden" id="Shop_Name" name="Shop_Name" value="<%= Shop_Name %>"/>
@@ -29,24 +35,21 @@
 				<span class="backPage">돌아가기..</span>
 			</div>
 		
-		</header>
-	
-		<main id="main" class="InventoryListMain">
 			<div id="SellStatusList">
 				<table id="List">
 					<tr class="TableList">
-						<th>상품명</th>
-						<th>판매갯수</th>
-						<th>판매가격</th>
-						<th>수익금</th>
+						<th id="item_Name">상품명</th>
+						<th id="item_Cnt">판매갯수</th>
+						<th id="item_Price">판매가격</th>
+						<th id="item_Price2">수익금</th>
 					</tr>
 						
 					<c:forEach var="Shop_S_List" items="${ Shop_SellStatusList }">
 					<tr class="TableList">
-						<td>${ Shop_S_List.item_Name }</td>
-						<td>${ Shop_S_List.item_SellCnt }</td>
-						<td><fmt:formatNumber value="${ Shop_S_List.item_Price }" pattern="###,### 원"/></td>
-						<td><fmt:formatNumber value="${ Shop_S_List.item_SellPrice }" pattern="###,### 원"/></td>
+						<td id="item_Name">${ Shop_S_List.item_Name }</td>
+						<td id="item_Cnt">${ Shop_S_List.item_SellCnt }</td>
+						<td id="item_Price"><fmt:formatNumber value="${ Shop_S_List.item_Price }" pattern="###,### 원"/></td>
+						<td id="item_Price2"><fmt:formatNumber value="${ Shop_S_List.item_SellPrice }" pattern="###,### 원"/></td>
 <%-- 						<td>${ Shop_S_List.item_Price }</td> --%>
 <%-- 						<td>${ Shop_S_List.item_SellPrice }</td> --%>
 						<c:set var="item_AllSellPrice" value="${ item_AllSellPrice + Shop_S_List.item_SellPrice }"/>

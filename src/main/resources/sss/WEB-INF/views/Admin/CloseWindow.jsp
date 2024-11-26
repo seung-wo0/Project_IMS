@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <body>
 	<script>
-		alert("수정이 완료 되었습니다.");
+		alert("완료 되었습니다.");
 		window.close();
 	</script>
 </body>

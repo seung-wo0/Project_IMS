@@ -33,5 +33,10 @@
 	<update id="mtdInventoryItemCntUpdate">
 		update Shop_Inventory set item_Cnt=item_Cnt+#{item1} where Shop_Code=#{item2} AND item_Name=#{item3};
 	</update>
+	
+	<insert id="mtdInventoryAddItemProc">
+		insert into Shop_Inventory (Shop_Code, item_Name, item_Cnt, item_Price) values
+		(#{item1}, #{item2}, #{item3}, #{item4});
+	</insert>
 
 </mapper>
