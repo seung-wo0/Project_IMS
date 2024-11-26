@@ -15,7 +15,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>관리자용</title>
-	<link rel="stylesheet" href="/style/style.css?v">
+	<link rel="stylesheet" href="/style/Admin_style.css?v">
 	<% if(userAuth_session < 2) { %>
 	<script>
 		alert ("관리자만 접근 할 수 있는 페이지 입니다.");
@@ -24,17 +24,16 @@
 	<% } %>
 </head>
 <body>
-	<div id="addShopwrap" class="addShopwrap">
+	<div id="wrap" class="addShopWrap">
 		<form action="" id="AddShopProcFrm">
 			<div id="ShopCodeFrmArea" class="divAddShopFrmArea dFlex">
 				<span>매장코드 : </span>
-				<input type="text" id="Shop_Code" name="Shop_Code" value="${ RandomShopCode }" disabled>
+				<input type="text" id="AddShopCode" name="AddShopCode" value="${ RandomShopCode }" readonly>
 			</div>
 			<div id="ShopNameFrmArea" class="divAddShopFrmArea dFlex">
 				<span>추가할 매장명 : </span>
-				<input type="text" id="AdditemName" name="AdditemName" value="" placeholder="상품명 입력">
+				<input type="text" id="AddShopName" name="AddShopName" value="" placeholder="상품명 입력">
 			</div>
-			<input type="hidden" id="Shop_Code" name="Shop_Code" value="">
 			
 		</form>
 		<div id="AddShopProcFrmBtnArea">

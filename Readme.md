@@ -99,16 +99,13 @@
   - <img src="https://github.com/user-attachments/assets/728a2f47-ac61-4a1d-aa54-33eafa4b97bf" width="100%" title="20241126_1 상품재고변경및판매 변경" />
 - 홈페이지의 전체 관리자라면 매장선택 옆 "매장추가" 버튼만 추가 웹페이지에 랜덤6개 코드 부여까지. 매장추가는 이후작업에다시
   - <img src="https://github.com/user-attachments/assets/d008ee7e-4fc1-4cfc-b679-7e268afceb1a" width="100%" title="20241126_2 매장추가관련" />
+- 매장추가에 매장명 입력하면 해당하는 Mapper,Dao,svc 등 해당하는 작업 완료
 
 ---
 
 ## [작업 예정]
 
 - 매장추가에 매장명 입력하면 해당하는 매퍼 및 dao,svc 작업 필요
-
-## [작업 예정]
-
--
 
 ---
 

@@ -34,6 +34,7 @@
 		update Shop_Inventory set item_Cnt=item_Cnt+#{item1} where Shop_Code=#{item2} AND item_Name=#{item3};
 	</update>
 	
+<!-- 해당매장 상품추가 -->
 	<insert id="mtdInventoryAddItemProc">
 		insert into Shop_Inventory (Shop_Code, item_Name, item_Cnt, item_Price) values
 		(#{item1}, #{item2}, #{item3}, #{item4});

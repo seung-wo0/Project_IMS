@@ -22,10 +22,5 @@ public interface MemberDao {
 	//로그인한 멤버정보 세션을 담기위한 메서드
 	MemberDto findMemInfo(String uid);
 	
-	//관리자용 모든 멤버의 리스트를 불러오기위한 메서드
-	List<MemberDto> mtdMemberList();
-	
-	//관리자용 멤버의 관리매장추가를 위한 메서드
-	void mtdMemberShopAuthUpdate(Map<String,Object> map);
 	
 }

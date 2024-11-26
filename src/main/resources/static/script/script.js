@@ -198,7 +198,16 @@ $(function () {
 		});
 		
 		$(".AddShopProcBtn").click(function(){
-			window.location.href="addShopTest";
+			var AddShopName = $("#AddShopName").val();
+			if (AddShopName == "" | AddShopName == null) {
+				alert("매장명 입력하세요");
+				$("#AddShopName").focus();
+			} else {
+				$("#AddShopProcFrm").attr("method","post");
+				$("#AddShopProcFrm").attr("action","addShopProc");
+				$("#AddShopProcFrm").submit();
+			}
+
 		});
 		
 		$("#ShopList").change(function() {

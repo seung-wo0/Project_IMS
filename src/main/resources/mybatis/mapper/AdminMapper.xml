@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.project.ims.dao.MemberDao">
+<mapper namespace="com.project.ims.dao.AdminDao">
 
 <!-- 멤버 리스트 -->
 	<select id="mtdMemberList" resultType="com.project.ims.dto.MemberDto">
@@ -13,10 +13,13 @@
 		UPDATE memberList SET Shop_Code = #{item2} where userID = #{item1}
 	</update>
 	
-
+<!-- 관리자용 매장 추가 -->
+	<insert id="mtdAddShopProc">
+		insert into Shop_List (Shop_Name, Shop_Code) values
+		(#{item1}, #{item2});
+	</insert>
 	
 </mapper>
-
 
 <!-- 삭제하기 -->
 
