@@ -24,6 +24,7 @@ public class MemberController {
 	MemberSvc MemberSvc;
 	@Autowired
 	ShopListSvc ShopListSvc;
+	
 	// 회원가입 전 동의 페이지
 	@RequestMapping("/tos") 
 	public String mtdJoinTos() {
@@ -73,10 +74,10 @@ public class MemberController {
 		map.put("item4", userEmail);
 		
 		MemberSvc.mtdJoinProc(map);
-		System.out.println("JoinUserID : " + JoinUserID);
-		System.out.println("JoinUserPW : " + JoinUserPW);
-		System.out.println("userPhone : " + userPhone);
-		System.out.println("userEmail : " + userEmail);
+//		System.out.println("JoinUserID : " + JoinUserID);
+//		System.out.println("JoinUserPW : " + JoinUserPW);
+//		System.out.println("userPhone : " + userPhone);
+//		System.out.println("userEmail : " + userEmail);
 		return "Member/MemberJoinProc";
 	}
 	
@@ -93,7 +94,7 @@ public class MemberController {
 		if (chk==1) {
 			System.out.println("로그인 성공");
 			MemberDto mlist = MemberSvc.findMemInfo(LoginID);
-			ShopListDto slist = null;
+			ShopListDto slist = ShopListSvc.mtdfindShopName(mlist.getShop_Code());
 			
 			session.setAttribute("userID_session", mlist.getUserID());
 			session.setAttribute("userPW_session", mlist.getUserPW());
@@ -101,35 +102,23 @@ public class MemberController {
 			session.setAttribute("userAuth_session", mlist.getUserAuth());
 			session.setAttribute("Shop_Code_session", mlist.getShop_Code());
 			session.setAttribute("shop_Auth_session", mlist.getShop_Auth());
-			
-			System.out.println("Shop_Code_session : " + mlist.getShop_Code());
-			System.out.println("shop_Auth_session : " + mlist.getShop_Auth());
-
-			
+		
 			if (mlist.getUserAuth() > 0) { // 만약 관리자라면
-				System.out.println("관리자 shopList 진입");
+//				System.out.println("관리자 shopList 진입");
 				session.setAttribute("shopList", ShopListSvc.mtdAllShopList());
-//				model.addAttribute("shopList", ShopListSvc.mtdAllShopList());
-				System.out.println("관리자 shopList 진입끝");
+//				System.out.println("관리자 shopList 진입끝");
 			} 
 			if (mlist.getShop_Code() > 0) {
-				System.out.println("일반유저 shopList 진입");
-				slist = ShopListSvc.mtdfindShopName(mlist.getShop_Code());
 				session.setAttribute("Shop_Name_Session", slist.getShop_Name());
-				System.out.println("Shop_Name_Session : " + slist.getShop_Name());
-				System.out.println("slist.getShop_Name() : " + slist.getShop_Name());
-				System.out.println("일반유저 shopList 진입끝");
-				
+//				System.out.println("일반멤버 shopList 진입");
+//				System.out.println("일반멤버 shopList 진입끝");
 			}
 			
 //			System.out.println("mlist.getShop_Code() : " + mlist.getShop_Code());
 			session.setMaxInactiveInterval(10*60*60);
-			//model.addAllAttributes("UserMGment", )
-			
 			return "redirect:/";
 		} else {
-			System.out.println("로그인 실패");
-
+//			System.out.println("로그인 실패");
 			model.addAttribute("LoginID",LoginID);
 		
 			return "Member/LoginFail";
@@ -140,12 +129,12 @@ public class MemberController {
 	//로그아웃 처리
 	@RequestMapping("/Logout")
 	public String mtdLogout(HttpServletRequest req, HttpSession session) {
-		
 		session = req.getSession();
-		
+
 		if(session != null) {
 			session.invalidate();
 		} 
+		
 		return "redirect:/";
 	}
 }

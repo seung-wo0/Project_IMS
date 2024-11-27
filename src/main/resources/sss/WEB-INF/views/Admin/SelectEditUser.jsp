@@ -11,7 +11,6 @@
 		userAuth_session = (int)session.getAttribute("userAuth_session");
 	}
 	
-
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -27,7 +26,7 @@
 		window.location.href = "/";
 	</script>
 <% } %>
-	<div id="wrap" class="SelectEditUser">
+	<div id="wrap" class="SelectEditUserWrap">
 		<p> ${SelectUserID} 님 관리매장 추가</p>
 		<div id="ShopListArea">
 			<% if (userAuth_session != 0 && userAuth_session > 0) { %>
@@ -39,7 +38,7 @@
 					</c:forEach>
 				</select>
 				<input id="SelectUserID" class="SelectUserID" name="SelectUserID" type="hidden" disabled="disabled" value="${ SelectUserID }">
-				<button id="selectEditUser" class="selectEditUser" type="button">수정</button>
+				<button id="selectEditUser" class="selectEditUser" type="button">적용</button>
 			</form>
 			<!-- form#selectEditUserForm -->
 			<% } %>

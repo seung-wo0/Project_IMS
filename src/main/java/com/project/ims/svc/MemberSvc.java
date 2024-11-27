@@ -6,10 +6,17 @@ import java.util.Map;
 import com.project.ims.dto.MemberDto;
 
 public interface MemberSvc {
-	int LoginProc(String uid, String upw);
-	MemberDto findMemInfo(String uid);
-	List<MemberDto> mtdMemberList();
-	void mtdMemberShopAuthUpdate(Map<String,Object> map);
+	
+	//멤버 회원가입 시 중복아이디 체크 메서드
 	int chkID(String JoinUserID);
+	
+	//멤버 회원가입 처리 메서드
 	void mtdJoinProc(Map<String, Object> map);
+	
+	//멤버 로그인처리 메서드
+	int LoginProc(String LoginID, String LoginPW);
+	
+	//로그인한 멤버정보 세션을 담기위한 메서드
+	MemberDto findMemInfo(String uid);
+	
 }

@@ -6,7 +6,6 @@ input {
 	margin: 0px 5px;
 }
 
-
 div#wrap {
     width: 1200px;
     padding: 20px 10px;
@@ -15,13 +14,74 @@ div#wrap {
     margin: 20px auto;
 }
 
+div.InventoryUpdateCntWarp {
+	width: 600px;
+	padding: 20px 10px;
+    border: 3px solid #aaa;
+    border-radius: 6px;
+    margin: 20px auto;
+}
+
+div.InventoryUpdateCntWarp input {
+	font-size: 20px;
+	padding: 2px 10px;
+	margin: 20px 10px;
+}
+
+div.InventoryUpdateCntWarp button {
+	font-size: 20px;
+	padding: 5px 10px;
+}
+}
+
+#InventoryUpdateCntWarp,
+#InventoryAddItemWarp {
+	width: 500px;
+	padding: 20px 5px;
+    border: 3px solid #aaa;
+    border-radius: 6px;
+    margin: 20px auto;
+}
+.InventoryUpdateCntMain button,
+.InventoryAddItemWarp button {
+	margin: 10px;
+}
+
+.InventoryAddItemWarp #AddItemProcFrmBtnArea {
+	text-align: center;
+}
+
+#AddItemProcFrmBtnArea button {
+	font-size: 25px;
+}
+
+#inven_updateFrm input,
+#inven_updateFrm select,
+#InventoryAddItemProcFrm input,
+#InventoryAddItemProcFrm span {
+	margin: 10px;
+}
+#InventoryAddItemProcFrm {
+	text-align: center;
+}
+#InventoryAddItemProcFrm span {
+	font-size: 18px;
+	width: 180px;
+	text-align: right;
+	font-weight: bold;
+}
+
+#InventoryAddItemProcFrm input {
+	font-size: 18px;
+}
+
 h1 {
     font-size: 36px;
     vertical-align: middle;
     text-align: center;
 }
 
-h3{
+h3 {
 	margin: 0 auto;
 	padding-left: 10px;
 	padding-right: 20px;
@@ -42,7 +102,21 @@ button {
 }
 
 #LoginFormArea {
-	display: flex;
+	width: 100%;
+}
+
+#LoginFormArea > form {
+	height: 100px;
+	padding: 25px;
+
+	align-items: center;
+}
+
+#LoginFormArea > form > input {
+	width: 200px;
+	height: 30px;
+	font-size: 20px;
+	padding: 10px;
 }
 
 .Logout_Btn,
@@ -54,18 +128,131 @@ button {
 	text-align: center;
 }
 
+#header {
+	padding: 50px;
+	text-align: center;
+}
+
+#headerMenu {
+	padding: 10px;
+	justify-content: center;
+	margin-bottom: 10px;
+}
+
+#headerMenu > span {
+	font-weight: bold;
+	text-align: center;
+	padding: 10px;
+	cursor: pointer;
+}
+
+div#loginStateMenu {
+	padding: 30px;
+/* 	margin: 10px; */
+	align-items: center;
+}
+
+.backPage:hover {
+	text-decoration: underline;
+	color: red;
+}
+
 main#main.dFlex {
 	flex-wrap: wrap;
 	justify-content: space-between;
 	justify-content: center;
-	
+/* 	padding: 10px; */
+	width: 100%;
 }
 
-main#main div.MainListArea {
-	width: 30%;
+main#main div#nav {
+	width: 15%;
+}
+
+#nav ul {
+	width: 100%;
+}
+
+#nav ul li {
+	border: 1px solid red;
+	margin: 10px 0;
+	padding: 10px 5px;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+#nav ul li.Main_Home {
+	border: 1px solid red;
+	font-size: 20px;
+	cursor: default;
+	text-align: center;
+	cursor: pointer;
+}
+
+#nav ul p.span {
+	border: none;
+	font-size: 20px;
+	cursor: default;
+	text-align: center;
+	font-weight: bold;
+}
+
+main#main div#mainCenter {
+	width: 80%;
+	padding: 10px 5px;
+	margin: 0;
+	flex-direction: column;
+}
+
+main#main #inventoryTodayArea {
+	padding: 20px;
+	justify-content: center;
+}
+
+main#main .TodayAreas {
 	padding: 10px;
 	border: 2px solid #000;
 	border-radius: 1em;
+	margin: 0px 10px;
+}
+#main .TodayAreas .TodayTitlediv {
+	margin: 10px 0px 30px 0px;
+}
+#main .TodayAreas span.TodayAreaTitle {
+	font-size: 35px;
+	font-weight: bold;
+	border-bottom: 3px solid purple;
+	padding-bottom: 5px;
+}
+
+#main .TodayAreas span.TodayAreaInfo {
+	font-size: 25px;	
+}
+
+#main .TodayAreas .TodayInfodiv {
+	text-align: right;
+}
+
+main#main #InventoryAreaHeader {
+	width: 100%;
+}
+
+main#main #content {
+	width: 100%;
+	flex-direction: row;
+	justify-content: center;
+}
+
+main#main #content table {
+	width: 100%;
+}
+
+main#main div.MainListArea {
+	width: 40%;
+	padding: 10px;
+	border: 2px solid #000;
+	border-radius: 1em;
+	margin: 10px 40px;
 }
 
 
@@ -109,14 +296,52 @@ div#loginStateMenu select {
 
 table#List {
 	border-collapse: collapse;
+	border : 1px solid black;
+	margin-left: auto;
+	margin-right: auto;
 	width: 100%;
 }
+
+#SellStatusList table,
+#InventoryList table {
+	width: 650px;
+}
+
+th {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+table #item_Name {
+	width: 250px;
+}
+
+table #item_Cnt {
+	width: 120px;
+}
+
+table #item_Price {
+	width: 175px;
+}
+
+table #item_Price2 {
+	width: 200px;
+}
+
 th,td {
-	padding: 5px 10px;
+	padding: 8px;
 	text-align: center;
+	font-weight: bold;
 	border: 1px solid #000;
 }
-th {
-	border: 1px solid #000;
-	outline: green;
+
+td#item_Name {
+	padding-left: 15px;
+	text-align: left;
+}
+
+td#item_Price,
+td:last-child {
+	text-align: right;
+	font-size: 18px;
 }

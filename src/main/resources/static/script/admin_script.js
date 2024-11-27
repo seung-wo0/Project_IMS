@@ -17,6 +17,7 @@ $(function () {
 				"cursor" : ""
 			})
 		});
+		
 		$(".listCol").click(function() {
 			//var divID = $(this).attr("id");
 			//console.log("클릭 : " + divID);

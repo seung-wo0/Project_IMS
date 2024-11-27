@@ -30,17 +30,6 @@ public class MemberSvcImp implements MemberSvc {
 	}
 	
 	@Override
-	public List<MemberDto> mtdMemberList() {
-		return MemberDao.mtdMemberList();
-	}
-
-	@Override
-	public void mtdMemberShopAuthUpdate(Map<String, Object> map) {
-		MemberDao.mtdMemberShopAuthUpdate(map);
-		
-	}
-	
-	@Override
 	public void mtdJoinProc(Map<String, Object> map) {
 		MemberDao.mtdJoinProc(map);
 	}
