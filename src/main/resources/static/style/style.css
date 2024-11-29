@@ -181,6 +181,8 @@ main#main div#nav {
 	padding: 10px 5px;
 	font-size: 20px;
 	cursor: pointer;
+	height: 50px;
+	line-height: 30px;
 }
 
 #nav ul li.Main_Home {
@@ -204,6 +206,11 @@ main#main div#mainCenter {
 	padding: 10px 5px;
 	margin: 0;
 	flex-direction: column;
+}
+
+
+main#main #headerShopTitle {
+	padding: 10px 0;
 }
 
 main#main #inventoryTodayArea {
@@ -331,9 +338,10 @@ table #item_Price2 {
 }
 
 th,td {
-	padding: 8px;
+/* 	padding: 8px; */
+	height: 40px;
 	text-align: center;
-	font-weight: bold;
+/* 	font-weight: bold; */
 	border: 1px solid #000;
 }
 
@@ -346,4 +354,14 @@ td#item_Price,
 td:last-child {
 	text-align: right;
 	font-size: 18px;
+	padding-right: 8px;
+}
+
+/* inc/footer_inc.jsp 부분 */
+footer#footer {	
+	justify-content: center; 
+}
+
+footer#footer p, footer#footer address {
+	margin: 10px;
 }

@@ -9,6 +9,9 @@
 // 	out.print("<br><br> 비동기통신 Shop_Code : " + Shop_Code);
 // 	out.print("<br><br> 비동기통신 Shop_Name: " + Shop_Name);
 %>
+<div id="headerShopTitle" class="headerShopTitle">
+	<h1>[ <%=Shop_Name %> ] 매장 현황</h1>
+</div>
 <div id="inventoryTodayArea" class="dFlex">
 	<div id="inventoryAddArea" class="TodayAreas">
 		<div id="InventoryAddTitle" class="TodayTitlediv">	

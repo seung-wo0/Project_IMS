@@ -133,6 +133,9 @@
 					
 				</main>
 				<!-- main#main -->
+				
+				<%@ include file="inc/footer_inc.jsp" %>
+				
 	</div>
 	<!-- div#wrap -->
 
