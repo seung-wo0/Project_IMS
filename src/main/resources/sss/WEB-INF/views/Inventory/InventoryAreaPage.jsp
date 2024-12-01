@@ -9,10 +9,22 @@
 // 	out.print("<br><br> 비동기통신 Shop_Code : " + Shop_Code);
 // 	out.print("<br><br> 비동기통신 Shop_Name: " + Shop_Name);
 %>
+
+<jsp:useBean id="nowDate" class="java.util.Date" />
+<c:set var="todayitemSellCnt" value="0"/>
+<c:set var="todayitemSellPrice" value="0"/>
+<c:forEach var="Shop_AllStatusList" items="${ Shop_AllStatusList }">
+	<fmt:formatDate var="item_SellTM" value="${ Shop_AllStatusList.item_SellTM }" pattern="yyyyMMdd"/>
+	<c:if test="${todayDate eq item_SellTM}">
+		<c:set var="todayitemSellCnt" value="${todayitemSellCnt + Shop_AllStatusList.item_SellCnt }"/>
+		<c:set var="todayitemSellPrice" value="${todayitemSellPrice + Shop_AllStatusList.item_SellPrice }"/>
+	</c:if>
+</c:forEach>
 <div id="headerShopTitle" class="headerShopTitle">
 	<h1>[ <%=Shop_Name %> ] 매장 현황</h1>
 </div>
 <div id="inventoryTodayArea" class="dFlex">
+	
 	<div id="inventoryAddArea" class="TodayAreas">
 		<div id="InventoryAddTitle" class="TodayTitlediv">	
 			<span class="TodayAreaTitle">금일 입고</span>
@@ -27,7 +39,9 @@
 			<span class="TodayAreaTitle">금일 판매</span>
 		</div>
 		<div id="itemSellInfo" class="TodayInfodiv">
-			<span class="TodayAreaInfo">0,000 개</span>
+			<span class="TodayAreaInfo">
+				<fmt:formatNumber value="${ todayitemSellCnt }" pattern="###,###,###"/> 개
+			</span>
 		</div>
 	</div>
 	
@@ -36,7 +50,9 @@
 			<span class="TodayAreaTitle">금일 수익</span>
 		</div>
 		<div id="SellPriceInfo" class="TodayInfodiv">
-			<span class="TodayAreaInfo">000,000,000 원</span>
+			<span class="TodayAreaInfo">
+				<fmt:formatNumber value="${ todayitemSellPrice }" pattern="###,###,###"/> 원
+			</span>
 		</div>
 	</div>
 	

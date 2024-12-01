@@ -1,6 +1,12 @@
 package com.project.ims.Controller;
 
+import java.sql.Date;
+import java.text.DecimalFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.web.format.DateTimeFormatters;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,9 +39,16 @@ public class MainController {
 			@RequestParam("Shop_Code") int Shop_Code, 
 			@RequestParam("Shop_Name") String Shop_Name ) {		
 		
+		LocalDate todayDate = LocalDate.now();
+//		DecimalTimeFormat df = new DecimalFormat("yyyyMMdd");
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMdd");
+		System.out.println(dtf.format(todayDate));
+//		df.format(todayDate);
 		model.addAttribute("Shop_InventoryList", ShopInventorySvc.mtdInventoryListLimit(Shop_Code));
 		model.addAttribute("Shop_SellStatusList", ShopSellStatusSvc.mtdShopSellStatusList(Shop_Code));
-
+		model.addAttribute("todayDate" ,dtf.format(todayDate));//오늘날짜 넣어주기
+		model.addAttribute("Shop_AllStatusList" ,ShopSellStatusSvc.mtdAllSellStatusList(Shop_Code));//전체판매 목록불러오기
+//		System.out.println("todayDate : " + todayDate);
 		return "Inventory/InventoryAreaPage";
 	}
 	

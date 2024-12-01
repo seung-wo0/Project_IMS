@@ -1,5 +1,7 @@
 package com.project.ims.dto;
 
+import java.sql.Timestamp;
+
 import lombok.Data;
 
 @Data
@@ -9,4 +11,5 @@ public class ShopInventoryDto {
 	private String item_Name; // 매장에 상품명
 	private int item_Cnt; // 매장에 상품수량
 	private int item_Price;	// 매장의 상품가격
+	private Timestamp item_addTM; //상품 등록시간
 }
