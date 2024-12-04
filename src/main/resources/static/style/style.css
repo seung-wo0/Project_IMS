@@ -336,7 +336,9 @@ table #item_Price {
 table #item_Price2 {
 	width: 200px;
 }
-
+table #item_SellTM {
+	width: 105px;
+}
 th,td {
 /* 	padding: 8px; */
 	height: 40px;

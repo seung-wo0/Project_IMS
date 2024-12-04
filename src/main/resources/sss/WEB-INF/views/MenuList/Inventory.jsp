@@ -29,7 +29,6 @@
 				<h2>[ <%= Shop_Name %> ] 매장관리 - 상품관리</h2>
 				
 				<button id=InventoryItemAddBtn class="InventoryItemAddBtn">상품 추가</button>
-
 					<input type="hidden" id="Shop_Code" name="Shop_Code" value="<%= Shop_Code %>"/>
 					<input type="hidden" id="Shop_Name" name="Shop_Name" value="<%= Shop_Name %>"/>
 
@@ -46,9 +45,12 @@
 					</tr>
 					<c:forEach var="InvenList" items="${ ShopInventoryList }">
 					<tr class="TableList ItemUpdate">
+						<input type="hidden" id="item_Num" name="item_Num" value="${ InvenList.num }" />
 						<td id="item_Name">${ InvenList.item_Name }</td>
 						<td id="item_Cnt">${ InvenList.item_Cnt }</td>
 						<td id="item_Price"><fmt:formatNumber value="${ InvenList.item_Price }" pattern="###,### 원" /></td>
+						<input type="hidden" id="item_Price" name="item_Price" value="${ InvenList.item_Price }" />
+						
 <%-- 						<td> ${ InvenList.item_Price }</td> --%>
 					</tr>
 					</c:forEach>

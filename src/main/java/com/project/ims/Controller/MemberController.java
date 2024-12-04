@@ -108,6 +108,7 @@ public class MemberController {
 				session.setAttribute("shopList", ShopListSvc.mtdAllShopList());
 //				System.out.println("관리자 shopList 진입끝");
 			} 
+			
 			if (mlist.getShop_Code() > 0) {
 				session.setAttribute("Shop_Name_Session", slist.getShop_Name());
 //				System.out.println("일반멤버 shopList 진입");

@@ -61,25 +61,51 @@ public class InventoryManagerController {
 	public String mtdInventoryUpdateProc(HttpServletRequest req, RedirectAttributes redirectAttributes) {
 	    int NowCnt = Integer.parseInt(req.getParameter("NowCnt"));
 	    int Shop_Code = Integer.parseInt(req.getParameter("Shop_Code"));
+	    int item_Price = Integer.parseInt(req.getParameter("item_Price"));
 	    String item_Name = req.getParameter("item_Name");
 	    int item_InputCnt = Integer.parseInt(req.getParameter("Inven_UpdateCnt"));
 	    String ClickBtn = req.getParameter("ClickBtn");
 	    String SuccessMsg = "페이지에 오류 발생! 재시도 해 주세요";
 	    String WhatIsClickBtn = (ClickBtn != null && ClickBtn.length() > 12) ? ClickBtn.substring(12) : "";
 	    int item_UpdateCnt = WhatIsClickBtn.equals("AddBtn") ? item_InputCnt : -item_InputCnt;
-	   
+	    int item_Num = Integer.parseInt(req.getParameter("item_Num"));
+	    
 	    if (NowCnt + item_UpdateCnt <= -1) {
 	        SuccessMsg = "변경 실패ㅠ_ㅠ 재시도 해주세요!";
 	    } else {
 	        Map<String, Object> map = new HashMap<>();
 	        map.put("item1", item_UpdateCnt); // 변경된 수량
-	        map.put("item2", Shop_Code);     // 샵 코드
-	        map.put("item3", item_Name);     // 아이템 이름
+	        map.put("item2", item_Price); // 변경된 가격
+	        map.put("item3", Shop_Code);     // 샵 코드
+	        map.put("item4", item_Name);     // 아이템 이름
 	        ShopInventorySvc.mtdInventoryItemCntUpdate(map); // 서비스 호출
 	        SuccessMsg = "변경 완료!";
 	    }
+	    
+	    // 재고변경이아닌 "입고" 버튼이라면 판매리스트에 추가
+	    if (WhatIsClickBtn.equals("AddBtn")) {
+	    	Map<String, Object> map = new HashMap<>();
 
-	    // 재고변경이아닌 판매버튼이라면 판매리스트에 추가
+	    	map.put("item1", Shop_Code); // 매장코드
+	    	map.put("item2", item_Name); // 판매 물품명
+	    	map.put("item3", item_InputCnt); // 판매한 갯수
+	    	ShopInventorySvc.mtdInventoryRecordProc(map);
+	    	
+	    	SuccessMsg = "입고 완료!";
+	    }
+	    
+	    
+	    // 재고변경이아닌 "출고" 버튼이라면 판매리스트에 추가
+	    if (WhatIsClickBtn.equals("OutBtn")) {
+	    	Map<String, Object> map = new HashMap<>();
+	    	map.put("item1", Shop_Code); // 매장코드
+	    	map.put("item2", item_Name); // 판매 물품명
+	    	map.put("item3", -item_InputCnt); // 판매한 갯수
+	    	ShopInventorySvc.mtdInventoryRecordProc(map);
+	    	SuccessMsg = "출고 완료!";
+	    }
+	    
+	    // 재고변경이아닌 "판매" 버튼이라면 판매리스트에 추가
 	    if (WhatIsClickBtn.equals("SellBtn")) {
 	    	Map<String, Object> map = new HashMap<>();
 	    	int per_price = ShopInventorySvc.mtdInventoryItemPrice(Shop_Code, item_Name);
@@ -90,6 +116,17 @@ public class InventoryManagerController {
 	    	map.put("item4", per_price); // 물품의 개당가격
 	    	map.put("item5", item_InputCnt*per_price); // 갯수*개당가격
 	    	ShopSellStatusSvc.mtdSellStatusUpdate(map);
+	    	SuccessMsg = "판매 완료!";
+	    }
+	    
+	    // 재고변경,판매 가아닌 삭제버튼이라면
+	    if (WhatIsClickBtn.equals("DelBtn")) {
+	    	Map<String, Object> map = new HashMap<>();	    	
+	    	map.put("item1", item_Num); // 상품고유번호
+	    	map.put("item2", item_Name); // 판매 물품명
+	    	
+	    	ShopInventorySvc.mtdInventoryDelItem(map); // 서비스 호출
+	    	SuccessMsg = "삭제 완료!";
 	    }
 	    
 	    redirectAttributes.addFlashAttribute("SuccessMsg", SuccessMsg);
@@ -115,10 +152,10 @@ public class InventoryManagerController {
 		String addItemName = req.getParameter("AdditemName");
 		String AdditemCnt = req.getParameter("AdditemCnt");
 		String AdditemPrice = req.getParameter("AdditemPrice");
-		System.out.println("Shop_Name : " + Shop_Name);
-		System.out.println("addItemName : " + addItemName);
-		System.out.println("AdditemCnt : " + AdditemCnt);
-		System.out.println("AdditemPrice : " + AdditemPrice);
+//		System.out.println("Shop_Name : " + Shop_Name);
+//		System.out.println("addItemName : " + addItemName);
+//		System.out.println("AdditemCnt : " + AdditemCnt);
+//		System.out.println("AdditemPrice : " + AdditemPrice);
 		Map<String, Object> map = new HashMap<>();
 		map.put("item1", Shop_Name);
 		map.put("item2", addItemName);

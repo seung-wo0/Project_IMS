@@ -10,7 +10,7 @@
     Object shop_Code_session_obj = session.getAttribute("Shop_Code_session");
 	Object Shop_Name_Session_obj = session.getAttribute("Shop_Name_Session");
 
-// 	out.print("userAuth_session : " + userAuth_session_str + "<br/>");
+// 	out.print("userAuth_session : " + userAuth_session_obj + "<br/>");
 // 	out.print("Shop_Code_session : " + Shop_Code_session_str);
 	
 	int userAuth_session = 0;
@@ -63,6 +63,9 @@
 </head>
 <body>
 	<div id="wrap">
+	<%
+// out.print("userAuth_session : " + userAuth_session + "<br/>");
+	%>
 		<!-- Header include 부분 시작-->
 		<%@ include file="inc/Header_inc.jsp" %>
 		<!-- Header include 부분 끝-->

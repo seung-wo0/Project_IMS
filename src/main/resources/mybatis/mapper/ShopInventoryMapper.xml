@@ -31,13 +31,29 @@
 	
 <!-- 해당 매장 재고수량 조정 -->
 	<update id="mtdInventoryItemCntUpdate">
-		update Shop_Inventory set item_Cnt=item_Cnt+#{item1}, item_addTM=now() where Shop_Code=#{item2} AND item_Name=#{item3};
+		update Shop_Inventory set item_Cnt=item_Cnt+#{item1}, item_Price=#{item2}, item_addTM=now() where Shop_Code=#{item3} AND item_Name=#{item4};
 	</update>
 	
 <!-- 해당매장 상품추가 -->
 	<insert id="mtdInventoryAddItemProc">
-		insert into Shop_Inventory (Shop_Code, item_Name, item_Cnt, item_Price, item_SellTM) values
-		(#{item1}, #{item2}, #{item3}, #{item4}, now);
+		insert into Shop_Inventory (Shop_Code, item_Name, item_Cnt, item_Price, item_addTM) values
+		(#{item1}, #{item2}, #{item3}, #{item4}, now());
 	</insert>
+
+<!-- 해당매장 상품삭제 -->
+	<delete id="mtdInventoryDelItem">
+		delete from Shop_Inventory where num=#{item1} and item_Name=#{item2};
+	</delete>
+	
+<!-- 해당매장 상품입/출고 기록 -->
+	<insert id="mtdInventoryRecordProc">
+		insert into Shop_Inventory_Record (Shop_Code, item_Name, item_Cnt, item_RecordTM) values
+		(#{item1}, #{item2}, #{item3}, now());
+	</insert>
+	
+<!-- 해당매장 상품입/출고 기록 확인 -->
+	<select id="mtdInventoryRecordList" resultType="com.project.ims.dto.ShopInventoryRecordDto">
+		select * from Shop_Inventory_Record where Shop_Code = #{param1} order by num desc;
+	</select>
 
 </mapper>

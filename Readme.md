@@ -2,73 +2,62 @@
 
 - <img src="https://github.com/user-attachments/assets/fb1227e0-5f55-46a0-ae08-6b1b0dc6c451" width="800" height="400" title="DB 설계도" />
 
----
+## [작업 예정]
 
-# 2024.11.07
-
-- 페이지 총 관리자 권한 확인 후 로그인시 회원관리 탭 추가
-  - <img src="https://github.com/user-attachments/assets/72597918-2c30-436f-ba3a-255a433a0c36" width="100%" title="20241107_1 일반회원 로그인" />
-  - <img src="https://github.com/user-attachments/assets/214f0e73-619b-473c-b003-f9bcf5bc92f0" width="100%" title="20241107_2 관리자 로그인" />
-- 회원관리페이지에 모든 멤버 리스트 출력 추가
-  - <img src="https://github.com/user-attachments/assets/c5053c9e-f816-4c52-ba60-310f360e7a96" width="100%" title="20241107_3 관리자용 멤버 리스트" />
-- 회원관리페이지에서 멤버 호버 이벤트 및 클릭시 해당 유저의 권한을 줄 수 있는 팝업페이지 연결
-  - <img src="https://github.com/user-attachments/assets/1bb91926-37e1-4c44-a20d-4e9f8f127e1b" width="100%" title="20241107_4 관리자용 멤버 리스트호버" />
+- 상품관리-> 변경/판매 부분 "상품추가 및 입고/출고 로 메인페이지에 "금일입고" 부분 관련 DB 및 해당관련 작업필요
+- 상품관리-> 변경/판매 부분 "상품삭제" 를 클릭시 숫자를 1이상 넣어야하는부분 수정필요
 
 ---
 
-# 2024.11.11
+# 2024.12.04
 
-- 관리자 관리매장 리스트전체목록 확인
-  - <img src="https://github.com/user-attachments/assets/5b4fee8f-ff3d-4cdf-bcfa-7fffe79713cc" width="100%" title="20241111_2 관리자용 매장 리스트출력" />
-- 관리매장 등록된 회원 리스트 목록 확인
-  - <img src="https://github.com/user-attachments/assets/f4085645-3615-4161-ab83-e017ae31b4e0" width="100%" title="20241111_2 멤버용 매장 리스트출력1" />
-  - <img src="https://github.com/user-attachments/assets/2e593d72-0138-4c86-8f12-e935838720d7" width="100%" title="20241111_2 멤버용 매장 리스트출력2" />
+- Shop_Inventory_Record (상품 입/출고 관련 dto 및 dao,mapper 추가)
+- 상품관리-> 변경/판매 부분 "상품추가 및 입고/출고" 시 기록하는부분 추가
+- index 금일 입·출고 부분 에 금일꺼만 표기 되게
 
 ---
 
-# 2024.11.14
+# 2024.12.02
 
-- ajax 를 통하여 비동기식 으로 지정받은 관리매장에 관한 물품(재고)리스트 추가
-  - <img src="https://github.com/user-attachments/assets/40457ced-7099-4175-ae78-3114bc16d7e6" width="100%" title="20241114_1 관리자 매장1 재고리스트" />
-  - <img src="https://github.com/user-attachments/assets/084ffb68-b975-4de1-aed5-87c057a27b06" width="100%" title="20241114_1 관리자 매장2 재고리스트" />
+- 매장상품 삭제 버튼 및 해당메서드 추가
 
 ---
 
-# 2024.11.15
+# 2024.12.01
 
-- 관리자 메뉴 회원관리 에서 메인으로 돌아갈수있는 "돌아가기" 버튼 추가
-  - <img src="https://github.com/user-attachments/assets/6f31f595-00a7-498f-b932-1d0ebc300958" width="100%" title="20241115_1 관리자 멤버관리 돌아가기" />
-- 관리자 메뉴 회원관리 에서 멤버클릭시 관리매장추가리스트 출력 및 멤버의 매장을 추가
-  - <img src="https://github.com/user-attachments/assets/1386ea2f-e386-49e7-b294-c886f06d579e" width="100%" title="20241115_2 관리자 멤버관리 멤버매장추가변경" />
+- 매장 현황 금일판매,금일 수익 관련하여 날짜 비교후 합산하여 표기.
 
 ---
 
-# 2024.11.17
+# 2024.11.30
 
-- 관리매장 선택 후 "재고 목록 리스트" 우측 "..더보기" 선택시 해당매장 전체 재고목록 리스트를 출력해주는 페이지로 이동 후 전체리스트 출력
-  - <img src="https://github.com/user-attachments/assets/9128f3e6-8249-4b4e-a296-824fee8f486a" width="100%" title="20241117_1 재고리스트 더보기 클릭시" />
-  - <img src="https://github.com/user-attachments/assets/8fef7677-d76a-41b5-b7d6-6c2cb6696bbb" width="100%" title="20241117_1 재고리스트 더보기 클릭시2" />
-- 회원가입 페이지 의 약관 체크 및 동의 후 회원가입 페이지 이동 및 가입절차 및 가입등록
-  - <img src="https://github.com/user-attachments/assets/136b98a5-143e-48fc-a9d9-c7367ef01cb2" width="100%" title="20241117_2 회원가입 관련" />
+- css 일부 수정
+- footer 추가
+- 인덱스 금일 판매량,금일수익금 관련해서 불러오기 완료
 
 ---
 
-# 2024.11.20
+# 2024.11.28
 
-- 매장별 재고관리 페이지 "재고변경", "재고판매" 버튼 추가
-  - <img src="https://github.com/user-attachments/assets/5c89402c-c736-40c6-b81c-f636ad9d26b0" width="100%" title="20241120_1 재고관리페이지 버튼추가" />
-- "재고변경"-재고선택시 선택한 상품에 따라 비동기식 으로 재고수량 불러오기
-- "재고변경" 수량 정상 입력시 추가,삭제 에 따른 계산 및 데이터 처리 후 alert로 처리결과 보여 준 후 자식창 close 및 부모창 새로고침
-  - <img src="https://github.com/user-attachments/assets/5b47f6cf-bfd8-48d2-a906-da57549f38b4" width="100%" title="20241120_2,3 재고관리페이지 버튼추가" />
-- "재고판매" 는 현재 미작업
+- css 일부 수정
 
 ---
 
-# 2024.11.22
+# 2024.11.26
 
-- "Controller" 코드 간소화
-- "dao", "svc" 파일 작동메서드 명시 및 "dto" 내부 설명 명시
-  - <img src="https://github.com/user-attachments/assets/8b2db4c7-2c72-454f-b89b-6cf2a8bbe534" width="100%" title="20241122_2 dao,svc파일 작동메서드명시" />
+- 상품관리 페이지 내 상품추가 버튼및 해당하는 작업완료
+  - <img src="https://github.com/user-attachments/assets/728a2f47-ac61-4a1d-aa54-33eafa4b97bf" width="100%" title="20241126_1 상품재고변경및판매 변경" />
+- 홈페이지의 전체 관리자라면 매장선택 옆 "매장추가" 버튼만 추가 웹페이지에 랜덤6개 코드 부여까지. 매장추가는 이후작업에다시
+  - <img src="https://github.com/user-attachments/assets/d008ee7e-4fc1-4cfc-b679-7e268afceb1a" width="100%" title="20241126_2 매장추가관련" />
+- 매장추가에 매장명 입력하면 해당하는 Mapper,Dao,svc 등 해당하는 작업 완료
+
+---
+
+# 2024.11.25
+
+- 메인 페이지 리뉴얼 메인 좌측에 메뉴리스트 나열
+  - <img src="https://github.com/user-attachments/assets/c0ce5bd2-c3f5-4b9d-abc8-e1560d703fa5" width="100%" title="20241125_1 메인좌측 네비게이션 추가" />
+- 재고관리메뉴 -> 추가/삭제 버튼 제거 리스트중 변경할 상품을 클릭하면 해당상품에관한 수량 추가/삭제/판매 까지 가능하게 변경
 
 ---
 
@@ -85,43 +74,71 @@
 
 ---
 
-# 2024.11.25
+# 2024.11.22
 
-- 메인 페이지 리뉴얼 메인 좌측에 메뉴리스트 나열
-  - <img src="https://github.com/user-attachments/assets/c0ce5bd2-c3f5-4b9d-abc8-e1560d703fa5" width="100%" title="20241125_1 메인좌측 네비게이션 추가" />
-- 재고관리메뉴 -> 추가/삭제 버튼 제거 리스트중 변경할 상품을 클릭하면 해당상품에관한 수량 추가/삭제/판매 까지 가능하게 변경
-
----
-
-# 2024.11.26
-
-- 상품관리 페이지 내 상품추가 버튼및 해당하는 작업완료
-  - <img src="https://github.com/user-attachments/assets/728a2f47-ac61-4a1d-aa54-33eafa4b97bf" width="100%" title="20241126_1 상품재고변경및판매 변경" />
-- 홈페이지의 전체 관리자라면 매장선택 옆 "매장추가" 버튼만 추가 웹페이지에 랜덤6개 코드 부여까지. 매장추가는 이후작업에다시
-  - <img src="https://github.com/user-attachments/assets/d008ee7e-4fc1-4cfc-b679-7e268afceb1a" width="100%" title="20241126_2 매장추가관련" />
-- 매장추가에 매장명 입력하면 해당하는 Mapper,Dao,svc 등 해당하는 작업 완료
+- "Controller" 코드 간소화
+- "dao", "svc" 파일 작동메서드 명시 및 "dto" 내부 설명 명시
+  - <img src="https://github.com/user-attachments/assets/8b2db4c7-2c72-454f-b89b-6cf2a8bbe534" width="100%" title="20241122_2 dao,svc파일 작동메서드명시" />
 
 ---
 
-# 2024.11.28
+# 2024.11.20
 
-- css 일부 수정
-
----
-
-# 2024.11.30
-
-- css 일부 수정
-- footer 추가
-- 메인 금일 판매량,금일수익금 관련해서 불러오기 까지 완료
+- 매장별 재고관리 페이지 "재고변경", "재고판매" 버튼 추가
+  - <img src="https://github.com/user-attachments/assets/5c89402c-c736-40c6-b81c-f636ad9d26b0" width="100%" title="20241120_1 재고관리페이지 버튼추가" />
+- "재고변경"-재고선택시 선택한 상품에 따라 비동기식 으로 재고수량 불러오기
+- "재고변경" 수량 정상 입력시 추가,삭제 에 따른 계산 및 데이터 처리 후 alert로 처리결과 보여 준 후 자식창 close 및 부모창 새로고침
+  - <img src="https://github.com/user-attachments/assets/5b47f6cf-bfd8-48d2-a906-da57549f38b4" width="100%" title="20241120_2,3 재고관리페이지 버튼추가" />
+- "재고판매" 는 현재 미작업
 
 ---
 
-# 2024.12.01
+# 2024.11.17
 
-- 매장 현황 금일판매,금일 수익 관련하여 날짜 비교후 합산하여 표기.
+- 관리매장 선택 후 "재고 목록 리스트" 우측 "..더보기" 선택시 해당매장 전체 재고목록 리스트를 출력해주는 페이지로 이동 후 전체리스트 출력
+  - <img src="https://github.com/user-attachments/assets/9128f3e6-8249-4b4e-a296-824fee8f486a" width="100%" title="20241117_1 재고리스트 더보기 클릭시" />
+  - <img src="https://github.com/user-attachments/assets/8fef7677-d76a-41b5-b7d6-6c2cb6696bbb" width="100%" title="20241117_1 재고리스트 더보기 클릭시2" />
+- 회원가입 페이지 의 약관 체크 및 동의 후 회원가입 페이지 이동 및 가입절차 및 가입등록
+  - <img src="https://github.com/user-attachments/assets/136b98a5-143e-48fc-a9d9-c7367ef01cb2" width="100%" title="20241117_2 회원가입 관련" />
 
-## [작업 예정]
+---
+
+# 2024.11.15
+
+- 관리자 메뉴 회원관리 에서 메인으로 돌아갈수있는 "돌아가기" 버튼 추가
+  - <img src="https://github.com/user-attachments/assets/6f31f595-00a7-498f-b932-1d0ebc300958" width="100%" title="20241115_1 관리자 멤버관리 돌아가기" />
+- 관리자 메뉴 회원관리 에서 멤버클릭시 관리매장추가리스트 출력 및 멤버의 매장을 추가
+  - <img src="https://github.com/user-attachments/assets/1386ea2f-e386-49e7-b294-c886f06d579e" width="100%" title="20241115_2 관리자 멤버관리 멤버매장추가변경" />
+
+---
+
+# 2024.11.14
+
+- ajax 를 통하여 비동기식 으로 지정받은 관리매장에 관한 물품(재고)리스트 추가
+  - <img src="https://github.com/user-attachments/assets/40457ced-7099-4175-ae78-3114bc16d7e6" width="100%" title="20241114_1 관리자 매장1 재고리스트" />
+  - <img src="https://github.com/user-attachments/assets/084ffb68-b975-4de1-aed5-87c057a27b06" width="100%" title="20241114_1 관리자 매장2 재고리스트" />
+
+---
+
+# 2024.11.11
+
+- 관리자 관리매장 리스트전체목록 확인
+  - <img src="https://github.com/user-attachments/assets/5b4fee8f-ff3d-4cdf-bcfa-7fffe79713cc" width="100%" title="20241111_2 관리자용 매장 리스트출력" />
+- 관리매장 등록된 회원 리스트 목록 확인
+  - <img src="https://github.com/user-attachments/assets/f4085645-3615-4161-ab83-e017ae31b4e0" width="100%" title="20241111_2 멤버용 매장 리스트출력1" />
+  - <img src="https://github.com/user-attachments/assets/2e593d72-0138-4c86-8f12-e935838720d7" width="100%" title="20241111_2 멤버용 매장 리스트출력2" />
+
+---
+
+# 2024.11.07
+
+- 페이지 총 관리자 권한 확인 후 로그인시 회원관리 탭 추가
+  - <img src="https://github.com/user-attachments/assets/72597918-2c30-436f-ba3a-255a433a0c36" width="100%" title="20241107_1 일반회원 로그인" />
+  - <img src="https://github.com/user-attachments/assets/214f0e73-619b-473c-b003-f9bcf5bc92f0" width="100%" title="20241107_2 관리자 로그인" />
+- 회원관리페이지에 모든 멤버 리스트 출력 추가
+  - <img src="https://github.com/user-attachments/assets/c5053c9e-f816-4c52-ba60-310f360e7a96" width="100%" title="20241107_3 관리자용 멤버 리스트" />
+- 회원관리페이지에서 멤버 호버 이벤트 및 클릭시 해당 유저의 권한을 줄 수 있는 팝업페이지 연결
+  - <img src="https://github.com/user-attachments/assets/1bb91926-37e1-4c44-a20d-4e9f8f127e1b" width="100%" title="20241107_4 관리자용 멤버 리스트호버" />
 
 ---
 

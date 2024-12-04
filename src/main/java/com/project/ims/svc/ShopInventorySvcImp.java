@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.project.ims.dao.ShopInventoryDao;
 import com.project.ims.dto.ShopInventoryDto;
+import com.project.ims.dto.ShopInventoryRecordDto;
 
 @Service
 public class ShopInventorySvcImp implements ShopInventorySvc {
@@ -48,6 +49,21 @@ public class ShopInventorySvcImp implements ShopInventorySvc {
 	@Override
 	public int mtdInventoryAddItemProc(Map<String, Object> map) {
 		return ShopInventoryDao.mtdInventoryAddItemProc(map);
+	}
+	
+	@Override
+	public int mtdInventoryDelItem(Map<String, Object> map) {
+		return ShopInventoryDao.mtdInventoryDelItem(map);
+	}
+	
+	@Override
+	public int mtdInventoryRecordProc(Map<String, Object> map) {
+		return ShopInventoryDao.mtdInventoryRecordProc(map);
+	}
+	
+	@Override
+	public List<ShopInventoryRecordDto> mtdInventoryRecordList(int Shop_Code) {
+		return ShopInventoryDao.mtdInventoryRecordList(Shop_Code);
 	}
 	
 }

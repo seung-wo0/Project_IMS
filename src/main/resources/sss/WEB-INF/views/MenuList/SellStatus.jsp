@@ -31,7 +31,7 @@
 				<input type="hidden" id="Shop_Name" name="Shop_Name" value="<%= Shop_Name %>"/>
 <!-- 				<button id="InventoryItemSellBtn" class="InventoryItemSellBtn">재고판매</button> -->
 				
-				<b><span id="item_AllSellPrice">총 판매금액 : ${ item_AllSellPrice }</span>	</b>
+				<b><span id="item_AllSellPrice"> 총 판매금액 : ${ item_AllSellPrice } </span>	</b>
 				<span class="backPage">돌아가기..</span>
 			</div>
 		
@@ -42,6 +42,7 @@
 						<th id="item_Cnt">판매갯수</th>
 						<th id="item_Price">판매가격</th>
 						<th id="item_Price2">수익금</th>
+						<th id="item_SellTM">판매시간</th>
 					</tr>
 						
 					<c:forEach var="Shop_S_List" items="${ Shop_SellStatusList }">
@@ -50,7 +51,7 @@
 						<td id="item_Cnt">${ Shop_S_List.item_SellCnt }</td>
 						<td id="item_Price"><fmt:formatNumber value="${ Shop_S_List.item_Price }" pattern="###,### 원"/></td>
 						<td id="item_Price2"><fmt:formatNumber value="${ Shop_S_List.item_SellPrice }" pattern="###,### 원"/></td>
-<%-- 						<td>${ Shop_S_List.item_Price }</td> --%>
+						<td id="item_SellTM"><fmt:formatDate value="${ Shop_S_List.item_SellTM }" pattern="yyyy.MM.dd hh:mm:ss"/></td>
 <%-- 						<td>${ Shop_S_List.item_SellPrice }</td> --%>
 						<c:set var="item_AllSellPrice" value="${ item_AllSellPrice + Shop_S_List.item_SellPrice }"/>
 					</tr>
@@ -60,9 +61,8 @@
 					</c:set>
 <%-- 					<fmt:formatNumber value="${ item_AllSellPrice }" pattern="###,### 원" /> --%>
 						<script>
-
 							const AllPrice = "${ item_AllSellPrice }";
-							document.getElementById("item_AllSellPrice").textContent = "총 판매금액 : "+AllPrice+"";	
+							document.getElementById("item_AllSellPrice").textContent = "[ 총 수익금 : " + AllPrice + " ]";	
 // 						$("#item_AllSellPrice").text(${item_AllSellPrice});
 						</script>
 				</table>

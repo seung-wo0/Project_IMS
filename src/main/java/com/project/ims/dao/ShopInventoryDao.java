@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.project.ims.dto.ShopInventoryDto;
+import com.project.ims.dto.ShopInventoryRecordDto;
 
 @Mapper
 public interface ShopInventoryDao {
@@ -31,4 +32,12 @@ public interface ShopInventoryDao {
 	//상품 추가 처리 메서드
 	int mtdInventoryAddItemProc(Map<String, Object> map);
 	
+	//상품 삭제 처리 메서드
+	int mtdInventoryDelItem(Map<String, Object> map);
+	
+	//상품 입/출고 기록 메서드
+	int mtdInventoryRecordProc(Map<String, Object> map);
+	
+	//상품 입/출고 기록 가져오는 메서드
+	List<ShopInventoryRecordDto> mtdInventoryRecordList(int Shop_Code);
 }

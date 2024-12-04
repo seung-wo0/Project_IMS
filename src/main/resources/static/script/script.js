@@ -68,12 +68,15 @@ $(function () {
 		$("tr.ItemUpdate").click(function(){
 			var item_Name = $(this).children("td#item_Name").text();
 			var item_Cnt = $(this).children("td#item_Cnt").text();
-//			var item_Price = $(this).children("td#item_Price").text();
+			var item_Price = $(this).children("input#item_Price").val();
+			var item_Num = $(this).children("input#item_Num").val();
 			var Shop_Code = $("#Shop_Code").val();
 			var Shop_Name = $("#Shop_Name").val();
-			var InventoryChangeBtn = "InventoryUpdateCntView?Shop_Code=" + Shop_Code 
+			var InventoryChangeBtn = "InventoryUpdateCntView?item_Num=" + item_Num
+									+ "&Shop_Code=" + Shop_Code 
 									+ "&item_Name=" + item_Name
 									+ "&item_Cnt=" + item_Cnt
+  									+ "&item_Price=" + item_Price
 									+ "&Shop_Name=" + Shop_Name;
 			
 			var screenWidth = window.innerWidth;
@@ -108,10 +111,10 @@ $(function () {
 		
 		//인벤토리 재고변경 클릭 이벤트 (InventoryUpdateCnt.jsp)
 		$(".Inven_UpdateBtn").click(function(){ 
-			console
 			var Inven_UpdateCnt = $("#Inven_UpdateCnt").val();
 			var WhatBtn = $(this).attr("id");
-			if (Inven_UpdateCnt == "" || Inven_UpdateCnt == null || Inven_UpdateCnt == "0") {
+			console.log("WhatBtn : "+ WhatBtn);
+			if (Inven_UpdateCnt == "" || Inven_UpdateCnt == null) {
 				$("#Inven_UpdateCnt").focus();
 				alert("추가 및 삭제 할 수량을 입력 해 주세요");
 			} else {
