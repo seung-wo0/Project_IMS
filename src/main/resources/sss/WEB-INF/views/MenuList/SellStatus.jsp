@@ -2,11 +2,14 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt" %>
+
 <%
 	String Shop_Code = request.getParameter("Shop_Code");
 	String Shop_Name = request.getParameter("Shop_Name");
 %>
+
 <c:set var="item_AllSellPrice" value="${ 0 }"/>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -22,7 +25,8 @@
 			<!-- Header include 부분 끝-->
 		
 		</header>
-	
+		<!-- header#header.SellStatusListHeader -->
+		
 		<main id="main" class="SellStatusListMain">
 			<div id="headerMenu" class="headerMenu dFlex">
 				<h2>[ <%= Shop_Name %> ] 매장관리 - 판매정산</h2>
@@ -34,7 +38,8 @@
 				<b><span id="item_AllSellPrice"> 총 판매금액 : ${ item_AllSellPrice } </span>	</b>
 				<span class="backPage">돌아가기..</span>
 			</div>
-		
+			<!-- div#headerMenu.headerMenu -->
+			
 			<div id="SellStatusList">
 				<table id="List">
 					<tr class="TableList">
@@ -67,8 +72,11 @@
 						</script>
 				</table>
 			</div>
-			<!-- div#SellStatusList -->				
+			<!-- div#SellStatusList -->	
+						
 		</main>
+		<!-- main#main.SellStatusListMain -->
+	
 	</div>
 	<!-- div#wrap -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

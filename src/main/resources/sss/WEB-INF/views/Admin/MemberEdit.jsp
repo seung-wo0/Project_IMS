@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <% 
 	String userID_session = (String)session.getAttribute("userID_session");
 	int userAuth_session = 0;
@@ -10,6 +11,7 @@
 		userAuth_session = (int)session.getAttribute("userAuth_session");
 	}
 %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -59,7 +61,7 @@
 						</c:otherwise>
 					</c:choose>
 				</div>
-				<!-- div#MemberList.listCol.listRow.dFlex -->
+				<!-- div#MemberList.${memberListNum}.listRow.dFlex -->
 				</c:forEach>
 			</div>
 			<!-- div#MemberListArea -->

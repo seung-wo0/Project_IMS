@@ -40,17 +40,16 @@ public class InventoryMenuController {
 		return "MenuList/SellStatus";
 	}
 	
-	@RequestMapping("/Menu_3")
-	public String mtd_Menu_3() {
-		
-		return "MenuList/Inventory";
+	@RequestMapping("/Menu_InventoryRecord")
+	public String mtd_Menu_InventoryRecord(HttpServletRequest req, Model model) {
+		int Shop_Code = Integer.parseInt(req.getParameter("Shop_Code"));
+		model.addAttribute("Shop_InventoryRecord", ShopInventorySvc.mtdInventoryRecordList(Shop_Code));
+		return "MenuList/InventoryRecord";
 	}
 	
 	@RequestMapping("/Menu_4")
 	public String mtd_Menu_4() {
 		return "MenuList/4";
 	}
-	
-
 	
 }

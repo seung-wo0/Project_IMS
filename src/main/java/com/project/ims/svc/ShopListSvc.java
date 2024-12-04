@@ -3,7 +3,7 @@ package com.project.ims.svc;
 import java.util.List;
 
 import com.project.ims.dto.ShopListDto;
-
+	
 public interface ShopListSvc {
 	
 	//매장코드에따른 매장명 불러오기

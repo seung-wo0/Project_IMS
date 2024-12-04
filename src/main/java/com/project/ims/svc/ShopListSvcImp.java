@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.project.ims.dao.ShopListDao;
 import com.project.ims.dto.ShopListDto;
-
+	
 @Service
 public class ShopListSvcImp implements ShopListSvc {
 	

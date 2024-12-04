@@ -18,4 +18,5 @@ public interface AdminDao {
 	
 	//관리자용 매장추가 메서드
 	int mtdAddShopProc (Map<String, Object> map) ;
+	
 }

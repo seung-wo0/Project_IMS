@@ -3,7 +3,7 @@ package com.project.ims.dto;
 import java.sql.Timestamp;
 
 import lombok.Data;
-
+	
 @Data
 public class ShopInventoryRecordDto {
 	private int num; // 일련번호

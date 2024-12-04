@@ -5,7 +5,6 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.project.ims.dto.ShopInventoryDto;
 import com.project.ims.dto.ShopSellStatusDto;
 
 @Mapper

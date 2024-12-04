@@ -3,7 +3,7 @@ package com.project.ims.dto;
 import java.sql.Timestamp;
 
 import lombok.Data;
-
+	
 @Data
 public class MemberDto {
 	private int num; //AutoIncrement

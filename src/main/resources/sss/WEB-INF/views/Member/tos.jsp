@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -36,10 +37,13 @@
 			</textarea>
 			<span>마케팅 정보 수신에 동의하십니까? <input type="checkbox" class="chkAgree" id="chk3"> 동의함(선택)</span>
 		</div>
+		<!-- div#tosTxtArea -->
 		
 		<footer id="footerBtnArea" class="tosFooter dFlex">
 			<button type="button" id="tosAgreeBtn">동의</button><button type="button" onclick="history.back()">취소</button>
 		</footer>
+		<!-- footer#footerBtnArea -->
+	
 	</div>
 	<!-- div#wrap -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

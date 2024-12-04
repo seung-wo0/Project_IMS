@@ -66,4 +66,9 @@ public class ShopInventorySvcImp implements ShopInventorySvc {
 		return ShopInventoryDao.mtdInventoryRecordList(Shop_Code);
 	}
 	
+	@Override
+	public List<ShopInventoryRecordDto> mtdInventoryRecordListLimit(int Shop_Code) {
+		return ShopInventoryDao.mtdInventoryRecordListLimit(Shop_Code);
+	}
+	
 }

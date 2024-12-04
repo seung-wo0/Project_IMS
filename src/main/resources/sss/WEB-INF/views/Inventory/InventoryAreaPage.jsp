@@ -32,103 +32,146 @@
 <div id="headerShopTitle" class="headerShopTitle">
 	<h1>[ <%=Shop_Name %> ] 매장 현황</h1>
 </div>
+<!-- div#headerShopTitle -->
+
 <div id="inventoryTodayArea" class="dFlex">
-	
 	<div id="inventoryAddArea" class="TodayAreas">
 		<div id="InventoryAddTitle" class="TodayTitlediv">	
 			<span class="TodayAreaTitle">금일 입·출고</span>
 		</div>
+		<!-- div#InventoryAddTitle -->
 		<div id="InventoryAddInfo" class="TodayInfodiv">
 			<span class="TodayAreaInfo">
 				<fmt:formatNumber value="${ todayitemRecord }" pattern="###,###,###"/> 개
 			</span>
 		</div>
+		<!-- div#InventoryAddInfo -->
 	</div>
+	<!-- div#inventoryAddArea -->
 	
 	<div id="itemSellArea" class="TodayAreas">
 		<div id="itemSellTitle" class="TodayTitlediv">	
 			<span class="TodayAreaTitle">금일 판매</span>
 		</div>
+		<!-- div#itemSellTitle -->
 		<div id="itemSellInfo" class="TodayInfodiv">
 			<span class="TodayAreaInfo">
 				<fmt:formatNumber value="${ todayitemSellCnt }" pattern="###,###,###"/> 개
 			</span>
 		</div>
+		<!-- div#itemSellInfo -->
 	</div>
+	<!-- div#itemSellArea -->
 	
 	<div id="SellPriceArea" class="TodayAreas">
 		<div id="SellPriceTitle" class="TodayTitlediv">	
 			<span class="TodayAreaTitle">금일 매출</span>
 		</div>
+		<!-- div#SellPriceTitle -->
 		<div id="SellPriceInfo" class="TodayInfodiv">
 			<span class="TodayAreaInfo">
 				<fmt:formatNumber value="${ todayitemSellPrice }" pattern="###,###,###"/> 원
 			</span>
 		</div>
+		<!-- div#SellPriceInfo -->
 	</div>
-	
+	<!-- div#SellPriceArea -->
 </div>
+<!-- div#inventoryTodayArea -->
 
 <div id="content" class="dFlex">
-<div id="InventoryArea" class="MainListArea">
-	<div id="InventoryTitle" class="MainNavTitle dFlex">
-		<span class="ListTitleName">재고 목록</span>			
-		<form id="Menu_inventoryList" method="post">
-			<input type="hidden" id="Shop_Name" name="Shop_Name" value="<%= Shop_Name  %>"></input>
-			<input type="hidden" id="Shop_Code" name="Shop_Code" value="<%= Shop_Code  %>"></input>
-		</form>				
+	<div id="InventoryArea" class="MainListArea">
+		<div id="InventoryTitle" class="MainNavTitle dFlex">
+			<span class="ListTitleName">재고 목록</span>			
+			<form id="Menu_inventoryList" method="post">
+				<input type="hidden" id="Shop_Name" name="Shop_Name" value="<%= Shop_Name  %>"></input>
+				<input type="hidden" id="Shop_Code" name="Shop_Code" value="<%= Shop_Code  %>"></input>
+			</form>				
+		</div>
+		<!-- div#InventoryTitle -->
+				
+		<div id="InventoryList">
+			<table id="List">
+				<tr class="TableList">
+					<th>상품명</th>
+					<th>재고</th>
+					<th>가격</th>
+				</tr>
+				<c:forEach var="Shop_I_List" items="${ Shop_InventoryList }">
+				<tr class="TableList">
+					<td>${ Shop_I_List.item_Name }</td>
+					<td>${ Shop_I_List.item_Cnt }</td>
+					<td><fmt:formatNumber value="${ Shop_I_List.item_Price }" pattern="###,### 원" /></td>
+	<%-- 				<td>${ Shop_I_List.item_Price }</td> --%>
+				</tr>
+				</c:forEach>
+			</table>
+		</div>
+		<!-- div#InventoryList -->
 	</div>
-	<!-- div#InventoryTitle -->
+	<!-- div#InventoryArea -->
+	
+	<div id="SellStatusArea" class="MainListArea">
 			
-	<div id="InventoryList">
-		<table id="List">
-			<tr class="TableList">
-				<th>상품명</th>
-				<th>재고</th>
-				<th>가격</th>
-			</tr>
-			<c:forEach var="Shop_I_List" items="${ Shop_InventoryList }">
-			<tr class="TableList">
-				<td>${ Shop_I_List.item_Name }</td>
-				<td>${ Shop_I_List.item_Cnt }</td>
-				<td><fmt:formatNumber value="${ Shop_I_List.item_Price }" pattern="###,### 원" /></td>
-<%-- 				<td>${ Shop_I_List.item_Price }</td> --%>
-			</tr>
-			</c:forEach>
-		</table>
-	</div>
-	<!-- div#InventoryList -->
-</div>
-<!-- div#InventoryArea -->
-
-<div id="SellStatusArea" class="MainListArea">
+		<div id="SellStatusTitle" class="MainNavTitle dFlex">
+			<span class="ListTitleName">판매 정산</span>                                         
+		</div>
+		<!-- div#SellStatusTitle -->
 		
-	<div id="SellStatusTitle" class="MainNavTitle dFlex">
-		<span class="ListTitleName">판매 정산</span>                                         
+		<div id="SellStatusList">
+			<table id="List">
+				<tr class="TableList">
+					<th>상품명</th>
+					<th>판매갯수</th>
+	<!-- 				<th>개별가격</th> -->
+					<th>수익금</th>
+				</tr>
+				<c:forEach var="Shop_S_List" items="${ Shop_SellStatusList }">
+				<tr class="TableList">
+					<td>${ Shop_S_List.item_Name }</td>
+					<td>${ Shop_S_List.item_SellCnt }</td>
+	<%-- 				<td>${ Shop_S_List.item_Price }</td> --%>
+					<td><fmt:formatNumber value="${ Shop_S_List.item_SellPrice }" pattern="###,### 원"></fmt:formatNumber></td>
+	<%-- 				<td>${ Shop_S_List.item_SellPrice }</td> --%>
+				</tr>
+				</c:forEach>
+			</table>
+		</div>
+		<!-- div#SellStatusList -->
+		
 	</div>
-	<!-- div#SellStatusTitle -->
-	
-	<div id="SellStatusList">
-		<table id="List">
-			<tr class="TableList">
-				<th>상품명</th>
-				<th>판매갯수</th>
-<!-- 				<th>개별가격</th> -->
-				<th>수익금</th>
-			</tr>
-			<c:forEach var="Shop_S_List" items="${ Shop_SellStatusList }">
-			<tr class="TableList">
-				<td>${ Shop_S_List.item_Name }</td>
-				<td>${ Shop_S_List.item_SellCnt }</td>
-<%-- 				<td>${ Shop_S_List.item_Price }</td> --%>
-				<td><fmt:formatNumber value="${ Shop_S_List.item_SellPrice }" pattern="###,### 원"></fmt:formatNumber></td>
-<%-- 				<td>${ Shop_S_List.item_SellPrice }</td> --%>
-			</tr>
-			</c:forEach>
-		</table>
+	<!-- div#SellStatusArea -->
+
+	<div id="SellStatusArea" class="MainListArea">
+			
+		<div id="SellStatusTitle" class="MainNavTitle dFlex">
+			<span class="ListTitleName">입·출고 목록</span>                                         
+		</div>
+		<!-- div#SellStatusTitle -->
+		
+		<div id="InventoryRecordList">
+			<table id="List">
+				<tr class="TableList">
+					<th>상품명</th>
+					<th>입·출고 수량</th>
+	<!-- 				<th>개별가격</th> -->
+					<th>작업시간</th>
+				</tr>
+				<c:forEach var="Shop_InventoryRecordList" items="${ Shop_InventoryRecordList }">
+				<tr class="TableList">
+					<td>${ Shop_InventoryRecordList.item_Name }</td>
+					<td>${ Shop_InventoryRecordList.item_Cnt }</td>
+	<%-- 				<td>${ Shop_S_List.item_Price }</td> --%>
+					<td><fmt:formatDate value="${ Shop_InventoryRecordList.item_RecordTM }" pattern="yyyy.MM.dd hh:mm:ss"/></td>
+	<%-- 				<td>${ Shop_S_List.item_SellPrice }</td> --%>
+				</tr>
+				</c:forEach>
+			</table>
+		</div>
+		<!-- div#SellStatusList -->
+		
 	</div>
-	<!-- div#SellStatusList -->
-	
+	<!-- div#SellStatusArea -->
+
 </div>
-<!-- div#SellStatusArea -->
-</div>
+<!-- div#content -->

@@ -92,7 +92,7 @@ public class MemberController {
 		int chk = MemberSvc.LoginProc(LoginID,LoginPW);
 		
 		if (chk==1) {
-			System.out.println("로그인 성공");
+//			System.out.println("로그인 성공");
 			MemberDto mlist = MemberSvc.findMemInfo(LoginID);
 			ShopListDto slist = ShopListSvc.mtdfindShopName(mlist.getShop_Code());
 			
@@ -132,10 +132,9 @@ public class MemberController {
 	public String mtdLogout(HttpServletRequest req, HttpSession session) {
 		session = req.getSession();
 
-		if(session != null) {
-			session.invalidate();
-		} 
+		if(session != null) session.invalidate();
 		
 		return "redirect:/";
 	}
+	
 }

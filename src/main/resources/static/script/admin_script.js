@@ -19,10 +19,8 @@ $(function () {
 		});
 		
 		$(".listCol").click(function() {
-			//var divID = $(this).attr("id");
-			//console.log("클릭 : " + divID);
 			var SelectUserID = $(this).find("span:first").text();
-			console.log("SelectUserID : " + SelectUserID);
+//			console.log("SelectUserID : " + SelectUserID);
 			var SelectUserURL = "EditUserPage?SelectUserID=" + SelectUserID;
 		
 		    // 화면 크기
@@ -45,8 +43,8 @@ $(function () {
 //			$(".SelectUserID").value();
 			var SelectUserID = $(".SelectUserID").val().trim();
 			var selectShop = $(".selectShop").val();
-			console.log("SelectUserID : " + SelectUserID);
-			console.log("selectShop : " + selectShop);
+//			console.log("SelectUserID : " + SelectUserID);
+//			console.log("selectShop : " + selectShop);
 			window.location.href="/MemberShopAuthProc?SelectUserID="+SelectUserID+"&selectShop="+selectShop;
 		});
 		

@@ -3,7 +3,7 @@ package com.project.ims.dto;
 import java.sql.Timestamp;
 
 import lombok.Data;
-
+	
 @Data
 public class ShopInventoryDto {
 	private int num; // AutoIncrement 적용

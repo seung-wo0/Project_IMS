@@ -3,6 +3,7 @@ $(function () {
 	/////////////////////////
 	//////// tos.jsp ////////
 	/////////////////////////
+	
 	$("#tosAllChk").click(function(){
 		let chkState = $("#tosAllChk").prop("checked");
 		
@@ -39,6 +40,7 @@ $(function () {
 			return false;
 		}
 	})
+	
 	
 	////////////////////
 	// MemberJoin.jsp //

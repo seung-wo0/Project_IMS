@@ -55,5 +55,8 @@
 	<select id="mtdInventoryRecordList" resultType="com.project.ims.dto.ShopInventoryRecordDto">
 		select * from Shop_Inventory_Record where Shop_Code = #{param1} order by num desc;
 	</select>
-
+<!-- 해당매장 메인에서 보여줄 상품입/출고 기록 -->
+	<select id="mtdInventoryRecordListLimit" resultType="com.project.ims.dto.ShopInventoryRecordDto">
+		select * from Shop_Inventory_Record where Shop_Code = #{param1} order by num desc limit 0,5
+	</select>	
 </mapper>

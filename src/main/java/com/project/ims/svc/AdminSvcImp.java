@@ -32,4 +32,5 @@ public class AdminSvcImp implements AdminSvc{
 	public int mtdAddShopProc(Map<String, Object> map) {
 		return AdminDao.mtdAddShopProc(map);
 	}
+	
 }

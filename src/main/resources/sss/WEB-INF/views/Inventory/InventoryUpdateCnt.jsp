@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <%
 	String Shop_Name = request.getParameter("Shop_Name");
 	String Shop_Code = request.getParameter("Shop_Code");
@@ -9,6 +10,7 @@
 	String item_Num = request.getParameter("item_Num");
 	String item_Price = request.getParameter("item_Price");
 %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>

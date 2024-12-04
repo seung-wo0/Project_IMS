@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <%
 	String Shop_Name = request.getParameter("Shop_Name");
 	String Shop_Code = request.getParameter("Shop_Code");
 %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>

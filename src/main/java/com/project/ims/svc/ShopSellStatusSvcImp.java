@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.project.ims.dao.ShopSellStatusDao;
 import com.project.ims.dto.ShopSellStatusDto;
-
+	
 @Service
 public class ShopSellStatusSvcImp implements ShopSellStatusSvc {
 

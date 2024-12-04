@@ -1,5 +1,7 @@
 package com.project.ims.Controller;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,10 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.project.ims.dto.ShopInventoryDto;
 import com.project.ims.svc.ShopInventorySvc;
 import com.project.ims.svc.ShopSellStatusSvc;
 
@@ -33,12 +33,16 @@ public class InventoryManagerController {
 			@RequestParam("Shop_Code") int Shop_Code, 
 			@RequestParam("Shop_Name") String Shop_Name ) {
 		
-//		System.out.println("컨트롤러 Shop_Code: " + Shop_Code);
-//		System.out.println("컨트롤러 Shop_Name: " + Shop_Name);
-		
+		LocalDate todayDate = LocalDate.now();
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMdd");
+//		System.out.println(dtf.format(todayDate));
 		model.addAttribute("Shop_InventoryList", ShopInventorySvc.mtdInventoryListLimit(Shop_Code));
 		model.addAttribute("Shop_SellStatusList", ShopSellStatusSvc.mtdShopSellStatusList(Shop_Code));
-		System.out.println(ShopSellStatusSvc.mtdShopSellStatusList(Shop_Code));
+		model.addAttribute("todayDate" ,dtf.format(todayDate));//오늘날짜 넣어주기
+		model.addAttribute("Shop_AllStatusList" ,ShopSellStatusSvc.mtdAllSellStatusList(Shop_Code));//전체판매 목록불러오기
+		model.addAttribute("InventoryRecordList" ,ShopInventorySvc.mtdInventoryRecordList(Shop_Code));//전체입/출고 목록불러오기
+		model.addAttribute("Shop_InventoryRecordList", ShopInventorySvc.mtdInventoryRecordListLimit(Shop_Code));
+
 		return "Inventory/InventoryAreaPage";
 	}
 	
@@ -142,7 +146,6 @@ public class InventoryManagerController {
 	
 	@RequestMapping("InventoryAddItem")
 	public String mtdInventoryAddItem (HttpServletRequest req, Model model) {
-		
 		return "Inventory/InventoryAddItem";
 	}
 	
@@ -165,6 +168,7 @@ public class InventoryManagerController {
 		String ProcMessage = "";
 		if (updateProc == 1) {
 			ProcMessage = "상품추가가 완료 되었습니다 !";
+			ShopInventorySvc.mtdInventoryRecordProc(map);
 		} else {
 			ProcMessage = "상품추가에 실패 하였습니다 !";
 		}

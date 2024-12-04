@@ -9,9 +9,6 @@
     Object userAuth_session_obj = session.getAttribute("userAuth_session");
     Object shop_Code_session_obj = session.getAttribute("Shop_Code_session");
 	Object Shop_Name_Session_obj = session.getAttribute("Shop_Name_Session");
-
-// 	out.print("userAuth_session : " + userAuth_session_obj + "<br/>");
-// 	out.print("Shop_Code_session : " + Shop_Code_session_str);
 	
 	int userAuth_session = 0;
 	int Shop_Code_session = 0;
@@ -35,8 +32,6 @@
 		    	shop_Code_session_obj = 0; 
 		    }
 		}
-// 		if (userAuth_session_obj!= null || userAuth_session_obj != "") userAuth_session = Integer.valueOf(userAuth_session_obj.toString());
-// 		if (shop_Code_session_obj != null || shop_Code_session_obj != "") Shop_Code_session = Integer.valueOf(shop_Code_session_obj.toString());
 
 		if (userAuth_session == 1) AuthName = "부 관리자";
 		if (userAuth_session == 2) AuthName = "총 관리자";
@@ -45,6 +40,7 @@
 		if (Shop_Code_session > 0) {
 			Shop_Name_Session = Shop_Name_Session_obj;
 		}
+		
 	} else {
 		userAuth_session = 0;
 		Shop_Code_session = 0;
@@ -52,7 +48,6 @@
 		Shop_Name_Session = "";
 	}
 %>
-
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -63,9 +58,6 @@
 </head>
 <body>
 	<div id="wrap">
-	<%
-// out.print("userAuth_session : " + userAuth_session + "<br/>");
-	%>
 		<!-- Header include 부분 시작-->
 		<%@ include file="inc/Header_inc.jsp" %>
 		<!-- Header include 부분 끝-->

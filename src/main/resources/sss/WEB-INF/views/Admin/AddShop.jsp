@@ -7,9 +7,9 @@
 	if(userID_session != null){
 		userAuth_session = (int)session.getAttribute("userAuth_session");
 	}
-// 	out.print("userID_session : " + userID_session);
-// // 	out.print("<br> userAuth_session : " + userAuth_session);
+
 %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -30,15 +30,20 @@
 				<span>매장코드 : </span>
 				<input type="text" id="AddShopCode" name="AddShopCode" value="${ RandomShopCode }" readonly>
 			</div>
+			<!-- div#ShopCodeFrmArea -->
+			
 			<div id="ShopNameFrmArea" class="divAddShopFrmArea dFlex">
 				<span>추가할 매장명 : </span>
 				<input type="text" id="AddShopName" name="AddShopName" value="" placeholder="상품명 입력">
 			</div>
-			
+			<!-- div#ShopNameFrmArea -->
 		</form>
+		<!-- form#AddShopProcFrm -->
+		
 		<div id="AddShopProcFrmBtnArea">
 			<button id="AddShopProcBtn" class="AddShopProcBtn">매장추가</button>
 		</div>
+		<!-- div#AddShopProcFrmBtnArea -->
 	</div>
 	<!-- div#wrap -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

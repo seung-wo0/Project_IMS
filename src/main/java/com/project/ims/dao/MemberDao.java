@@ -1,6 +1,5 @@
 package com.project.ims.dao;
 
-import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -21,6 +20,5 @@ public interface MemberDao {
 	
 	//로그인한 멤버정보 세션을 담기위한 메서드
 	MemberDto findMemInfo(String uid);
-	
 	
 }

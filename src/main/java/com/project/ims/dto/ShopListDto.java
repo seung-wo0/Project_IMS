@@ -1,7 +1,7 @@
 package com.project.ims.dto;
 
 import lombok.Data;
-
+	
 @Data
 public class ShopListDto {
 	private int num; // AutoIncrement 적용

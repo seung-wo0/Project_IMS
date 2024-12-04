@@ -37,4 +37,8 @@ public interface ShopInventorySvc {
 	
 	//상품 입/출고 기록 가져오는 메서드
 	List<ShopInventoryRecordDto> mtdInventoryRecordList(int Shop_Code);
+
+	//index페이지 에서 입/출고 기록 5개씩 보여주는 메서드
+	List<ShopInventoryRecordDto> mtdInventoryRecordListLimit(int Shop_Code);
+	
 }

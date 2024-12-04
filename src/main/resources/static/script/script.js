@@ -9,8 +9,8 @@ $(function () {
 		$(".Login_Btn").click(function() {
 			var LoginUID = $("#LoginID").val().trim();
 			var LoginUPW = $("#LoginPW").val().trim();
-			console.log(LoginUID);
-			console.log(LoginUPW);
+//			console.log(LoginUID);
+//			console.log(LoginUPW);
 			if(LoginUID == "" || LoginUID == null) {
 				alert("아이디를 입력해주세요")
 			} else if(LoginUPW == "" || LoginUPW == null) {
@@ -86,9 +86,6 @@ $(function () {
 		    var top = (screenHeight / 2) - (400 / 2);
 			
 			OpenWin_variety(InventoryChangeBtn, Shop_Name + '상품 추가/삭제/판매', 600, 400, top, left);
-//			console.log("상품명 : " + item_Name);
-//			console.log("재고 : " + item_Cnt);
-//			console.log("가격 : " + item_Price);
 		});
 		
 		$("tr.ItemUpdate").hover(
@@ -113,7 +110,7 @@ $(function () {
 		$(".Inven_UpdateBtn").click(function(){ 
 			var Inven_UpdateCnt = $("#Inven_UpdateCnt").val();
 			var WhatBtn = $(this).attr("id");
-			console.log("WhatBtn : "+ WhatBtn);
+//			console.log("WhatBtn : "+ WhatBtn);
 			if (Inven_UpdateCnt == "" || Inven_UpdateCnt == null) {
 				$("#Inven_UpdateCnt").focus();
 				alert("추가 및 삭제 할 수량을 입력 해 주세요");
@@ -164,15 +161,9 @@ $(function () {
 				alert("상품의 가격을 적어주세요.");
 				$("#AdditemPrice").focus();
 			} else {
-				console.log("모두 정상 재고를추가함");
-				console.log("additem_Name : " + additem_Name);
-				console.log("additem_Cnt : " + additem_Cnt);
-				console.log("additem_Price : " + additem_Price);
-				
 				$("#InventoryAddItemProcFrm").attr("method","post");
 				$("#InventoryAddItemProcFrm").attr("action","InventoryAddItemUpdate");
 				$("#InventoryAddItemProcFrm").submit();
-				
 			}
 				
 		
@@ -225,7 +216,7 @@ $(function () {
 		                loading = true;
 		                $.ajax({
 		                    type: "get",
-		                    url: "/test",
+		                    url: "/ShopManageMent",
 		                    data: {
 								"Shop_Code" : SValue,
 		                        "Shop_Name": SVname,
@@ -234,11 +225,11 @@ $(function () {
 		                    async: true,
 		                    success: function (data) {
 		                        $("#mainCenter").html(data);
-		                        console.log("비동기 통신 성공");
+//		                        console.log("비동기 통신 성공");
 		                        loading = false;
 		                    },
 		                    error: function () {
-		                        console.log("비동기 통신 실패");
+//		                        console.log("비동기 통신 실패");
 		                        loading = false;
 		                    }
 		                });
@@ -249,9 +240,6 @@ $(function () {
 				$("#mainCenter").text("관리 매장을 선택 하세요.");
 			}
 			
-//			console.log("Svalue = " + SValue);
-//			console.log("SVname = " + SVname);
-//			console.log($(".Svalue").text());
 			loadMoreContent();
 		});
 		
@@ -262,9 +250,9 @@ $(function () {
 //jsp 파일내 ".ListTitleMenu" 의 onclick 이벤트
 function fnInventoryList(MenuName) {
     var PageName = $(MenuName).attr("id").trim();
-    console.log("더보기를 클릭함 : " + PageName);
+//    console.log("더보기를 클릭함 : " + PageName);
 	var Shop_Code = $("#ShopList :selected").val();
-	console.log("선택한 매장 코드 : " + Shop_Code);
+//	console.log("선택한 매장 코드 : " + Shop_Code);
 //	location.href = "Menu_" + PageName;
 	if (Shop_Code == "" || Shop_Code == null || Shop_Code == 0) {		
 		alert("관리 매장을 선택하세요");

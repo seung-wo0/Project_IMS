@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.project.ims.dto.ShopSellStatusDto;
-
+	
 public interface ShopSellStatusSvc {
 	
 	//매장 전체물품리스트 처리 메서드

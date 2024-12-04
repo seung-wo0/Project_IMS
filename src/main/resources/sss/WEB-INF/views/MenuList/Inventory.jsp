@@ -3,6 +3,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <%
 	String Shop_Code = request.getParameter("Shop_Code");
 	String Shop_Name = request.getParameter("Shop_Name");
@@ -17,12 +18,12 @@
 </head>
 	<div id="wrap" class="InventoryListWrap">
 		<header id="header" class="InventoryListHeader">
-		<!-- Header include 부분 시작-->
-		<%@ include file="../inc/Header_inc.jsp" %>
-		<!-- Header include 부분 끝-->
-			
+			<!-- Header include 부분 시작-->
+			<%@ include file="../inc/Header_inc.jsp" %>
+			<!-- Header include 부분 끝-->
 		</header>
-		
+		<!-- header#header -->
+
 		<main id="main" class="InventoryListMain">
 			
 			<div id="headerMenu" class="headerMenu dFlex">
@@ -35,6 +36,7 @@
 				
 				<span class="backPage">돌아가기..</span>
 			</div>
+			<!-- div#headerMenu -->
 			
 			<div id="InventoryList">
 				<table id="List">
@@ -56,11 +58,14 @@
 					</c:forEach>
 				</table>
 			</div>
-			<!-- div#InventoryList -->				
+			<!-- div#InventoryList -->			
+				
 		</main>
-		
+		<!-- main#main.InventoryListMain -->
+
 	</div>
 	<!-- div#wrap -->
+	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="/script/script.js"></script>
 </html>    

@@ -34,7 +34,6 @@ div.InventoryUpdateCntWarp button {
 	padding: 5px 10px;
 }
 
-
 #InventoryUpdateCntWarp,
 #InventoryAddItemWarp {
 	width: 500px;
@@ -43,6 +42,7 @@ div.InventoryUpdateCntWarp button {
     border-radius: 6px;
     margin: 20px auto;
 }
+
 .InventoryUpdateCntMain button,
 .InventoryAddItemWarp button {
 	margin: 10px;
@@ -62,9 +62,11 @@ div.InventoryUpdateCntWarp button {
 #InventoryAddItemProcFrm span {
 	margin: 10px;
 }
+
 #InventoryAddItemProcFrm {
 	text-align: center;
 }
+
 #InventoryAddItemProcFrm span {
 	font-size: 18px;
 	width: 180px;
@@ -93,7 +95,6 @@ h3 {
 hr {
     margin: 10px 0;
 }
-
 
 button {
     font-size: 20px;
@@ -150,7 +151,6 @@ button {
 
 div#loginStateMenu {
 	padding: 30px;
-/* 	margin: 10px; */
 	align-items: center;
 }
 
@@ -163,7 +163,6 @@ main#main.dFlex {
 	flex-wrap: wrap;
 	justify-content: space-between;
 	justify-content: center;
-/* 	padding: 10px; */
 	width: 100%;
 }
 
@@ -224,9 +223,11 @@ main#main .TodayAreas {
 	border-radius: 1em;
 	margin: 0px 10px;
 }
+
 #main .TodayAreas .TodayTitlediv {
 	margin: 10px 0px 30px 0px;
 }
+
 #main .TodayAreas span.TodayAreaTitle {
 	font-size: 35px;
 	font-weight: bold;
@@ -250,12 +251,18 @@ main#main #content {
 	width: 100%;
 	flex-direction: row;
 	justify-content: center;
+	flex-wrap: wrap
 }
 
 main#main #content table {
 	width: 100%;
 }
 
+main#main #content th:nth-child(1),
+main#main #content td:nth-child(1) {
+	width: 130px;
+}
+	
 main#main div.MainListArea {
 	width: 40%;
 	padding: 10px;
@@ -284,11 +291,8 @@ main#main span.ListTitleMenu:hover  {
 }
 
 main#main.MainWrap > div {
-/* main#main > div:not(:last-of-type) { */
 	margin: 0 20px;
 	margin-bottom: 20px;
-/* 	margin-right: 30px; */
-/* 	margin-bottom: 20px; */
 }
 
 div#loginStateMenu select {
@@ -312,7 +316,8 @@ table#List {
 }
 
 #SellStatusList table,
-#InventoryList table {
+#InventoryList table,
+#InventoryRecordList table {
 	width: 650px;
 }
 
@@ -338,6 +343,9 @@ table #item_Price2 {
 }
 table #item_SellTM {
 	width: 105px;
+}
+table #item_RecordTM {
+	width: 100px;
 }
 th,td {
 /* 	padding: 8px; */
